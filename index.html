@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<title>NOVA ROLEPLAY | Oyun Politikaları</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+:root{
+  --bg:#0b0b10;
+  --panel:#12121a;
+  --text:#f1f1f1;
+  --muted:#b5b5b5;
+  --purple:#8c5aff;
+  --purpleSoft:rgba(140,90,255,.18);
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:Segoe UI,system-ui,sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  display:flex;
+  height:100vh;
+  overflow:hidden;
+}
+
+/* SIDEBAR */
+.sidebar{
+  width:300px;
+  background:linear-gradient(180deg,#0f0f16,#0a0a10);
+  padding:25px 20px;
+  overflow-y:auto;
+}
+.sidebar h2{
+  margin:0 0 15px;
+}
+.search{
+  width:100%;
+  padding:9px 12px;
+  border:none;
+  border-radius:6px;
+  background:#1a1a24;
+  color:white;
+  margin-bottom:20px;
+}
+.category{margin-bottom:20px}
+.category-title{
+  font-size:13px;
+  color:#cbbcff;
+  margin-bottom:6px;
+}
+.menu-item{
+  font-size:14px;
+  padding:8px 12px;
+  border-radius:8px;
+  cursor:pointer;
+  color:var(--muted);
+  transition:.25s;
+}
+.menu-item:hover{
+  background:var(--purpleSoft);
+  color:white;
+  transform:translateX(6px);
+}
+
+/* CONTENT */
+.content{
+  flex:1;
+  padding:40px 60px;
+  overflow-y:auto;
+}
+.section{
+  display:none;
+  animation:fade .4s ease;
+}
+.section.active{display:block}
+
+.section h1{
+  font-size:32px;
+  margin-bottom:20px;
+}
+.block{
+  background:linear-gradient(135deg,var(--panel),transparent);
+  border-left:4px solid rgba(140,90,255,.4);
+  padding:20px;
+  margin-bottom:18px;
+  border-radius:12px;
+}
+.block h3{
+  margin-top:0;
+  color:#e3dcff;
+}
+.block p{
+  line-height:1.6;
+  color:var(--muted);
+}
+
+@keyframes fade{
+  from{opacity:0;transform:translateX(20px)}
+  to{opacity:1;transform:translateX(0)}
+}
+</style>
+</head>
+
+<body>
+
+<!-- SIDEBAR -->
+<div class="sidebar">
+  <h2>NOVA ROLEPLAY</h2>
+  <input class="search" placeholder="Politika ara">
+
+  <div class="category">
+    <div class="category-title">⚖️ Legal Politikalar</div>
+    <div class="menu-item" onclick="openSec('dm')">DeathMatch (DM)</div>
+    <div class="menu-item" onclick="openSec('emote')">Emotesiz Ateş</div>
+  </div>
+
+  <div class="category">
+    <div class="category-title">❌ Illegal Politikalar</div>
+    <div class="menu-item" onclick="openSec('rdm')">Random DM (RDM)</div>
+    <div class="menu-item" onclick="openSec('vdm')">Vehicle DM (VDM)</div>
+  </div>
+
+  <div class="category">
+    <div class="category-title">🧠 Rol İhlalleri</div>
+    <div class="menu-item" onclick="openSec('mg')">Metagaming (MG)</div>
+    <div class="menu-item" onclick="openSec('pg')">Powergaming (PG)</div>
+    <div class="menu-item" onclick="openSec('fear')">FearRP / NVL</div>
+  </div>
+
+  <div class="category">
+    <div class="category-title">☠️ Ölüm Politikaları</div>
+    <div class="menu-item" onclick="openSec('ck')">Character Kill (CK)</div>
+    <div class="menu-item" onclick="openSec('nlr')">New Life Rule (NLR)</div>
+  </div>
+</div>
+
+<!-- CONTENT -->
+<div class="content">
+
+<div id="dm" class="section active">
+  <h1>DeathMatch (DM) Politikası</h1>
+  <div class="block">
+    <h3>DM Nedir?</h3>
+    <p>
+      DeathMatch, bir oyuncunun rol içerisinde geçerli ve kanıtlanabilir bir sebep olmadan
+      başka bir oyuncuya saldırması veya zarar vermesidir.
+    </p>
+  </div>
+  <div class="block">
+    <h3>Nasıl Değerlendirilir?</h3>
+    <p>
+      Saldırıdan önce taraflar arasında gelişmiş bir rol geçmişi bulunmalıdır.
+      OOC sebepler kesinlikle geçerli sayılmaz.
+    </p>
+  </div>
+</div>
+
+<div id="emote" class="section">
+  <h1>Emotesiz Ateş Politikası</h1>
+  <div class="block">
+    <p>
+      Oyuncular, ölümcül güç kullanmadan önce eylemlerini emote ile belirtmelidir.
+      Ani saldırıya uğrayan taraf savunma amaçlı karşılık verirken emote vermek zorunda değildir.
+    </p>
+  </div>
+</div>
+
+<div id="rdm" class="section">
+  <h1>Random DeathMatch (RDM)</h1>
+  <div class="block">
+    <p>
+      Rol geçmişi, diyalog veya sebep olmadan yapılan her saldırı RDM sayılır.
+    </p>
+  </div>
+</div>
+
+<div id="vdm" class="section">
+  <h1>Vehicle DeathMatch (VDM)</h1>
+  <div class="block">
+    <p>
+      Araçların silah gibi kullanılarak kasıtlı şekilde oyunculara vurulması VDM ihlalidir.
+    </p>
+  </div>
+</div>
+
+<div id="mg" class="section">
+  <h1>Metagaming (MG)</h1>
+  <div class="block">
+    <p>
+      Oyun dışı kaynaklardan elde edilen bilgilerin IC kullanılması yasaktır.
+    </p>
+  </div>
+</div>
+
+<div id="pg" class="section">
+  <h1>Powergaming (PG)</h1>
+  <div class="block">
+    <p>
+      Gerçek hayatta mümkün olmayan veya karşı tarafa seçenek tanımayan roller PG sayılır.
+    </p>
+  </div>
+</div>
+
+<div id="fear" class="section">
+  <h1>FearRP / NVL</h1>
+  <div class="block">
+    <p>
+      Karakter, hayati tehlike altındayken korku ve hayatta kalma içgüdüsüne uygun davranmalıdır.
+    </p>
+  </div>
+</div>
+
+<div id="ck" class="section">
+  <h1>Character Kill (CK)</h1>
+  <div class="block">
+    <p>
+      CK, karakterin hikâyesinin kalıcı olarak sona erdirilmesidir ve admin onayı gerektirir.
+    </p>
+  </div>
+</div>
+
+<div id="nlr" class="section">
+  <h1>New Life Rule (NLR)</h1>
+  <div class="block">
+    <p>
+      Karakter öldükten sonra olayla ilgili tüm bilgileri unutmuş sayılır ve olay yerine dönemez.
+    </p>
+  </div>
+</div>
+
+</div>
+
+<script>
+function openSec(id){
+  document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+}
+</script>
+
+</body>
+</html>
