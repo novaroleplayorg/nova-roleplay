@@ -1,1 +1,125 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<title>Nova Roleplay | Oyun İçi Politikalar</title>
 
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #0f0f0f;
+  color: #ffffff;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Layout */
+.wrapper {
+  display: flex;
+  height: 100vh;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 280px;
+  background: #111;
+  padding: 15px;
+  overflow-y: auto;
+  border-right: 1px solid rgba(128,0,255,0.2);
+}
+
+.sidebar h2 {
+  margin: 0 0 10px;
+  color: #b380ff;
+}
+
+.sidebar input {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 15px;
+  background: #1a1a1a;
+  border: none;
+  color: #fff;
+  outline: none;
+}
+
+.menu-item {
+  padding: 10px;
+  margin-bottom: 8px;
+  background: rgba(128,0,255,0.08);
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+.menu-item:hover {
+  background: rgba(128,0,255,0.2);
+}
+
+/* Content */
+.content {
+  flex: 1;
+  padding: 30px;
+  overflow-y: auto;
+}
+
+.section {
+  background: rgba(128,0,255,0.07);
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.section h3 {
+  margin-top: 0;
+  color: #c9a8ff;
+}
+</style>
+</head>
+
+<body>
+
+<div class="wrapper">
+
+  <!-- SIDEBAR -->
+  <div class="sidebar">
+    <h2>Nova RP</h2>
+    <input type="text" placeholder="Ara...">
+
+    <div class="menu-item" onclick="show('emote')">🔥 Emotesiz Ateş</div>
+    <div class="menu-item" onclick="show('dm')">📩 DM Politikası</div>
+    <div class="menu-item" onclick="show('ck')">💀 CK Politikası</div>
+  </div>
+
+  <!-- CONTENT -->
+  <div class="content">
+
+    <div id="emote" class="section">
+      <h3>Emotesiz Ateş</h3>
+      <p>Rol ortamında ateşli silah kullanımı öncesinde karşı tarafa uygun rol fırsatı tanınmalıdır.</p>
+    </div>
+
+    <div id="dm" class="section" style="display:none">
+      <h3>DM Politikası</h3>
+      <p>Geçerli bir rol sebebi olmadan yapılan saldırılar Deathmatch olarak değerlendirilir.</p>
+    </div>
+
+    <div id="ck" class="section" style="display:none">
+      <h3>CK Politikası</h3>
+      <p>Karakter öldürme işlemleri yönetim onayı ve geçerli rol gerektirir.</p>
+    </div>
+
+  </div>
+</div>
+
+<script>
+function show(id) {
+  document.querySelectorAll('.section').forEach(s => s.style.display = 'none');
+  document.getElementById(id).style.display = 'block';
+}
+</script>
+
+</body>
+</html>
