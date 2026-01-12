@@ -2,51 +2,39 @@
 <html lang="tr">
 <head>
   <meta charset="UTF-8">
-  <title>Nova Roleplay | Resmi Politikalar</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nova Roleplay</title>
+
+  <!-- FONT -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<div class="layout">
+<div class="app">
 
   <!-- SOL MENÜ -->
   <aside class="sidebar">
-    <h1 class="logo">NOVA RP</h1>
+    <div class="server-name">Nova Roleplay</div>
 
-    <input type="text" placeholder="Politika ara..." class="search">
+    <div class="channel">📢 Duyurular</div>
+    <div class="channel">📜 Kurallar</div>
+    <div class="channel">👋 Karşılama</div>
 
-    <div class="menu">
+    <div class="category">GENEL</div>
+    <div class="channel">💬 Sohbet</div>
+    <div class="channel">🎮 Oyun</div>
 
-      <div class="menu-title legal">⚖ Legal Politikalar</div>
-      <button onclick="loadContent('dm')">DeathMatch (DM)</button>
-      <button onclick="loadContent('emote')">Emotesiz Ateş</button>
-
-      <div class="menu-title illegal">❌ Illegal Politikalar</div>
-      <button onclick="loadContent('rdm')">Random DM (RDM)</button>
-      <button onclick="loadContent('vdm')">Vehicle DM (VDM)</button>
-      <button onclick="loadContent('mg')">Metagaming (MG)</button>
-      <button onclick="loadContent('pg')">Powergaming (PG)</button>
-
-      <div class="menu-title role">🎭 Rol İhlalleri</div>
-      <button onclick="loadContent('fearrp')">FearRP / NVL</button>
-
-      <div class="menu-title death">☠ Ölüm Politikaları</div>
-      <button onclick="loadContent('ck')">Character Kill (CK)</button>
-      <button onclick="loadContent('nlr')">New Life Rule (NLR)</button>
-
-      <div class="menu-title admin">🛡 Yetkili Yetkisi</div>
-      <button onclick="loadContent('admin')">Yetkili Yetkisi</button>
-
-    </div>
+    <div class="category">DESTEK</div>
+    <div class="channel">🎫 Ticket</div>
+    <div class="channel">🛠 Yardım</div>
   </aside>
 
   <!-- İÇERİK -->
   <main class="content">
-    <h2 id="title">Nova Roleplay Politikaları</h2>
-    <div class="card">
-      <p>Soldaki menüden bir politika seçiniz.</p>
-    </div>
+    <h1>Hoş geldin 👋</h1>
+    <p>Soldan bir kanal seç.</p>
   </main>
 
 </div>
