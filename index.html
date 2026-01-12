@@ -1,44 +1,123 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-  <meta charset="UTF-8">
-  <title>Nova Roleplay</title>
+<meta charset="UTF-8">
+<title>Nova Roleplay | Resmi Site</title>
 
-  <!-- FONT -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&display=swap" rel="stylesheet">
 
-  <!-- CSS -->
-  <link rel="stylesheet" href="style.css">
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Orbitron', sans-serif;
+}
+
+body{
+    background:#0b0614;
+    color:#e0d7ff;
+    display:flex;
+    height:100vh;
+    overflow:hidden;
+}
+
+/* SIDEBAR */
+.sidebar{
+    width:260px;
+    background:linear-gradient(180deg,#140a25,#0b0614);
+    box-shadow:0 0 20px #7a3cff;
+    padding:20px;
+}
+
+.logo{
+    text-align:center;
+    font-size:22px;
+    color:#b784ff;
+    text-shadow:0 0 15px #7a3cff;
+    margin-bottom:30px;
+}
+
+.menu a{
+    display:block;
+    padding:14px;
+    margin-bottom:10px;
+    color:#d6c8ff;
+    text-decoration:none;
+    border-radius:6px;
+    transition:.3s;
+}
+
+.menu a:hover{
+    background:#1b1033;
+    box-shadow:0 0 15px #7a3cff;
+    transform:translateX(6px);
+}
+
+/* CONTENT */
+.content{
+    flex:1;
+    padding:40px;
+    overflow-y:auto;
+    animation:fadeIn .6s ease;
+}
+
+.card{
+    background:#120a22;
+    border:1px solid #7a3cff55;
+    box-shadow:0 0 25px #7a3cff55;
+    border-radius:10px;
+    padding:25px;
+    margin-bottom:25px;
+}
+
+.card h2{
+    color:#caa8ff;
+    margin-bottom:10px;
+}
+
+.card p{
+    color:#d8ceff;
+    line-height:1.6;
+}
+
+/* ANIMATION */
+@keyframes fadeIn{
+    from{opacity:0; transform:translateY(15px);}
+    to{opacity:1; transform:translateY(0);}
+}
+</style>
 </head>
+
 <body>
 
-<div class="app">
-
-  <!-- SOL MENÜ -->
-  <aside class="sidebar">
-    <div class="server-name">Nova Roleplay</div>
-
-    <div class="channel">📢 Duyurular</div>
-    <div class="channel">📜 Kurallar</div>
-    <div class="channel">👋 Karşılama</div>
-
-    <div class="category">GENEL</div>
-    <div class="channel">💬 Sohbet</div>
-    <div class="channel">🎮 Oyun</div>
-
-    <div class="category">DESTEK</div>
-    <div class="channel">🎫 Ticket</div>
-    <div class="channel">🛠 Yardım</div>
-  </aside>
-
-  <!-- İÇERİK -->
-  <main class="content">
-    <h1>Hoş geldin 👋</h1>
-    <p>Soldan bir kanal seç.</p>
-  </main>
-
+<div class="sidebar">
+    <div class="logo">NOVA ROLEPLAY</div>
+    <div class="menu">
+        <a href="#">Ana Sayfa</a>
+        <a href="#">Kurallar</a>
+        <a href="#">Politikalar</a>
+        <a href="#">Yetkili Bilgileri</a>
+        <a href="#">İletişim</a>
+    </div>
 </div>
 
-<script src="script.js"></script>
+<div class="content">
+    <div class="card">
+        <h2>Hoş Geldiniz</h2>
+        <p>
+            Nova Roleplay resmi web sitesine hoş geldiniz.
+            Bu sayfa sunucu kuralları, politikalar ve bilgilendirme amacıyla hazırlanmıştır.
+        </p>
+    </div>
+
+    <div class="card">
+        <h2>Resmi Bilgilendirme</h2>
+        <p>
+            Sunucu ile ilgili tüm güncel duyurular ve açıklamalar bu site üzerinden paylaşılır.
+        </p>
+    </div>
+</div>
+
 </body>
 </html>
