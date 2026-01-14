@@ -16,22 +16,24 @@
       font-family: 'Montserrat', sans-serif;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
-      background: #0b0b12;
+      background: radial-gradient(circle at top, #1a0033, #0b0b12);
       color: #fff;
     }
 
-    /* HEADER */
     header {
       background: linear-gradient(135deg, #6a00ff, #8f00ff);
-      padding: 25px;
+      padding: 30px;
       text-align: center;
       box-shadow: 0 0 25px rgba(140, 0, 255, 0.6);
     }
 
     header h1 {
-      font-size: 32px;
-      font-weight: 700;
+      font-size: 34px;
       letter-spacing: 2px;
     }
 
@@ -40,7 +42,6 @@
       opacity: 0.9;
     }
 
-    /* NAVBAR */
     nav {
       background: #11111b;
       display: flex;
@@ -48,6 +49,9 @@
       gap: 30px;
       padding: 15px 0;
       border-bottom: 1px solid #1e1e2f;
+      position: sticky;
+      top: 0;
+      z-index: 10;
     }
 
     nav a {
@@ -58,31 +62,50 @@
     }
 
     nav a:hover {
-      color: #ffffff;
+      color: #fff;
       text-shadow: 0 0 10px #9b5cff;
     }
 
-    /* HERO */
+    section {
+      padding: 70px 20px;
+      max-width: 1100px;
+      margin: auto;
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 0.8s ease;
+    }
+
+    section.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    section h3 {
+      text-align: center;
+      margin-bottom: 40px;
+      font-size: 28px;
+      color: #d4b3ff;
+    }
+
     .hero {
       text-align: center;
-      padding: 80px 20px;
-      background: radial-gradient(circle at top, #1a0033, #0b0b12);
+      padding: 90px 20px;
     }
 
     .hero h2 {
-      font-size: 38px;
+      font-size: 40px;
       margin-bottom: 15px;
     }
 
     .hero p {
-      max-width: 600px;
+      max-width: 650px;
       margin: auto;
       opacity: 0.85;
     }
 
     .hero button {
       margin-top: 30px;
-      padding: 15px 40px;
+      padding: 15px 45px;
       font-size: 16px;
       font-weight: 700;
       border: none;
@@ -95,22 +118,8 @@
     }
 
     .hero button:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 35px rgba(200, 120, 255, 0.9);
-    }
-
-    /* SECTIONS */
-    section {
-      padding: 60px 20px;
-      max-width: 1100px;
-      margin: auto;
-    }
-
-    section h3 {
-      text-align: center;
-      margin-bottom: 40px;
-      font-size: 28px;
-      color: #d4b3ff;
+      transform: scale(1.08);
+      box-shadow: 0 0 40px rgba(200, 120, 255, 0.9);
     }
 
     .cards {
@@ -130,22 +139,10 @@
 
     .card:hover {
       transform: translateY(-8px);
-      box-shadow: 0 0 25px rgba(160, 80, 255, 0.6);
+      box-shadow: 0 0 30px rgba(160, 80, 255, 0.7);
       border-color: #7b2cff;
     }
 
-    .card h4 {
-      margin-bottom: 10px;
-      color: #b88cff;
-    }
-
-    .card p {
-      font-size: 14px;
-      opacity: 0.85;
-      line-height: 1.6;
-    }
-
-    /* FOOTER */
     footer {
       background: #0d0d16;
       padding: 25px;
@@ -159,71 +156,66 @@
 
 <body>
 
-  <header>
-    <h1>NOVA ROLEPLAY</h1>
-    <p>Gerçekçilik • Adalet • Kalite</p>
-  </header>
+<header>
+  <h1>NOVA ROLEPLAY</h1>
+  <p>Gerçekçilik • Adalet • Kalite</p>
+</header>
 
-  <nav>
-    <a href="#">Anasayfa</a>
-    <a href="#kurallar">Kurallar</a>
-    <a href="#">Hakkımızda</a>
-    <a href="https://discord.gg/ADSW7dkSha" target="_blank">Discord</a>
-  </nav>
+<nav>
+  <a href="#anasayfa">Anasayfa</a>
+  <a href="#kurallar">Kurallar</a>
+  <a href="#hakkimizda">Hakkımızda</a>
+  <a href="#" onclick="discordaGit()">Discord</a>
+</nav>
 
-  <div class="hero">
-    <h2>Türkiye'nin En Güçlü Roleplay Deneyimi</h2>
-    <p>
-      Nova Roleplay, adil yönetim, aktif yetkililer ve gerçekçi senaryolar ile
-      benzersiz ve uzun soluklu bir roleplay deneyimi sunar.
-    </p>
-    <button onclick="discordaGit()">Discord'a Katıl</button>
+<section id="anasayfa" class="hero">
+  <h2>Gerçek Roleplay Deneyimi</h2>
+  <p>
+    Nova Roleplay, kaliteli RP anlayışı, adil yönetim ve güçlü topluluk yapısı
+    ile oyunculara gerçekçi bir şehir hayatı sunar.
+  </p>
+  <button onclick="discordaGit()">Discord'a Katıl</button>
+</section>
+
+<section id="hakkimizda">
+  <h3>Hakkımızda</h3>
+  <div class="card">
+    Nova Roleplay; rol kalitesini ön planda tutan, adaletli yönetim anlayışı ile
+    oyuncularına uzun soluklu ve sürdürülebilir bir roleplay ortamı sunmayı
+    hedefleyen bir topluluktur. Burada herkesin hikâyesi değerlidir ve her rol
+    ciddiyetle ele alınır.
   </div>
+</section>
 
-  <section>
-    <h3>Neden Nova Roleplay?</h3>
-    <div class="cards">
-      <div class="card">
-        <h4>Adil Yönetim</h4>
-        <p>Tarafsız yetkili ekibi ve şeffaf ceza sistemi ile güvenilir bir RP ortamı.</p>
-      </div>
-      <div class="card">
-        <h4>Aktif Oyuncular</h4>
-        <p>Günün her saati aktif oyuncular ve canlı roleplay senaryoları.</p>
-      </div>
-      <div class="card">
-        <h4>Gerçekçi RP</h4>
-        <p>Kurallara dayalı, hikâye odaklı ve kaliteli roleplay sistemi.</p>
-      </div>
-    </div>
-  </section>
+<section id="kurallar">
+  <h3>Kurallar</h3>
+  <div class="card">
+    Kurallar yakında detaylı olarak eklenecektir. Tüm oyuncuların adil ve
+    kaliteli bir RP deneyimi yaşaması için hazırlanır.
+  </div>
+</section>
 
-  <!-- KURALLAR -->
-  <section id="kurallar">
-    <h3>Sunucu Kuralları</h3>
-    <div class="card">
-      <p>
-        Nova Roleplay sunucusunda tüm oyuncuların adil, saygılı ve kurallara uygun
-        bir şekilde rol yapması zorunludur. Powergaming, Metagaming, Non-RP davranışlar
-        ve sunucu düzenini bozacak her türlü hareket yasaktır.
-        <br><br>
-        Yetkili ekibinin aldığı kararlar, sunucu düzeni ve adaletin korunması amacıyla
-        uygulanır. Kuralları bilmemek mazeret sayılmaz.
-        <br><br>
-        Detaylı ve güncel kural listesi çok yakında bu bölümde paylaşılacaktır.
-      </p>
-    </div>
-  </section>
+<footer>
+  © 2026 Nova Roleplay • Tüm Hakları Saklıdır
+</footer>
 
-  <footer>
-    © 2026 Nova Roleplay • Tüm Hakları Saklıdır
-  </footer>
+<script>
+  function discordaGit() {
+    window.open("https://discord.gg/ADSW7dkSha", "_blank");
+  }
 
-  <script>
-    function discordaGit() {
-      window.open("https://discord.gg/ADSW7dkSha", "_blank");
-    }
-  </script>
+  const sections = document.querySelectorAll("section");
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("show");
+      }
+    });
+  }, { threshold: 0.2 });
+
+  sections.forEach(section => observer.observe(section));
+</script>
 
 </body>
 </html>
