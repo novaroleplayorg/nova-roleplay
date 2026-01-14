@@ -1,165 +1,149 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-  <meta charset="UTF-8">
-  <title>Nova Roleplay</title>
+  <meta charset="UTF-8" />
+  <title>Nova Roleplay | Resmi Site</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- FONT -->
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
   <style>
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: 'Montserrat', sans-serif;
+      font-family: 'Inter', sans-serif;
     }
 
     body {
       background: #0b0b12;
-      color: #fff;
+      color: #eaeaf0;
+      scroll-behavior: smooth;
     }
 
-    /* HEADER */
+    /* ÜST BAR */
     header {
-      background: linear-gradient(135deg, #b84cff, #8f00ff);
-      padding: 28px;
-      text-align: center;
-      box-shadow: 0 0 20px rgba(180, 80, 255, 0.5);
+      background: linear-gradient(90deg, #b400ff, #ff2f92);
+      padding: 18px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
 
     header h1 {
-      font-size: 32px;
+      font-size: 22px;
       font-weight: 700;
-      letter-spacing: 2px;
-    }
-
-    header p {
-      margin-top: 8px;
-      opacity: 0.9;
-    }
-
-    /* NAVBAR */
-    nav {
-      background: #11111b;
-      display: flex;
-      justify-content: center;
-      gap: 30px;
-      padding: 15px 0;
-      border-bottom: 1px solid #1e1e2f;
     }
 
     nav a {
-      color: #c9b6ff;
+      margin-left: 20px;
+      color: white;
       text-decoration: none;
-      font-weight: 600;
-      transition: 0.3s;
+      font-weight: 500;
+      transition: opacity .3s;
     }
 
     nav a:hover {
-      color: #ffffff;
-      text-shadow: 0 0 10px #9b5cff;
+      opacity: 0.7;
     }
 
-    /* HERO */
-    .hero {
-      text-align: center;
-      padding: 80px 20px;
-      background: radial-gradient(circle at top, #1a0033, #0b0b12);
-    }
-
-    .hero h2 {
-      font-size: 38px;
-      margin-bottom: 15px;
-    }
-
-    .hero p {
-      max-width: 600px;
-      margin: auto;
-      opacity: 0.85;
-    }
-
-    .hero button {
-      margin-top: 30px;
-      padding: 15px 40px;
-      font-size: 16px;
-      font-weight: 700;
-      border: none;
-      border-radius: 30px;
-      background: linear-gradient(135deg, #9b4dff, #c77dff);
-      color: #fff;
-      cursor: pointer;
-      box-shadow: 0 0 20px rgba(160, 80, 255, 0.6);
-      transition: 0.3s;
-    }
-
-    .hero button:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 35px rgba(200, 120, 255, 0.9);
-    }
-
-    /* SECTION */
+    /* GENEL ALAN */
     section {
-      padding: 60px 20px;
-      max-width: 1100px;
-      margin: auto;
-      opacity: 0;
-      transform: translateY(40px);
-      transition: all 0.8s ease;
+      padding: 80px 12%;
+      animation: fadeUp .7s ease;
     }
 
-    section.show {
-      opacity: 1;
-      transform: translateY(0);
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(25px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
-    section h3 {
-      text-align: center;
-      margin-bottom: 40px;
-      font-size: 28px;
-      color: #d4b3ff;
+    h2 {
+      font-size: 32px;
+      margin-bottom: 20px;
+      color: #ff5fbf;
     }
 
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 25px;
+    p {
+      line-height: 1.8;
+      color: #cfcfe6;
+      font-size: 15px;
     }
 
+    /* KART */
     .card {
-      background: #131326;
+      background: #141420;
+      border-radius: 14px;
       padding: 25px;
-      border-radius: 16px;
-      border: 1px solid #24244a;
-      transition: 0.3s;
-      box-shadow: 0 0 15px rgba(0,0,0,0.6);
+      margin-top: 20px;
+      box-shadow: 0 0 20px rgba(255, 95, 191, 0.08);
     }
 
-    .card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 0 25px rgba(160, 80, 255, 0.6);
-      border-color: #9b4dff;
+    /* NEDEN NOVA */
+    .reasons {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      margin-top: 30px;
     }
 
-    .card h4 {
+    .reason {
+      background: #19192b;
+      padding: 20px;
+      border-radius: 12px;
+    }
+
+    .reason h3 {
+      color: #ff5fbf;
+      margin-bottom: 8px;
+      font-size: 17px;
+    }
+
+    /* POLİTİKALAR */
+    .policy {
+      margin-bottom: 35px;
+    }
+
+    .policy h3 {
+      color: #ff5fbf;
       margin-bottom: 10px;
-      color: #caa3ff;
     }
 
-    .card p {
+    .policy p {
       font-size: 14px;
-      opacity: 0.85;
-      line-height: 1.6;
+    }
+
+    /* BUTON */
+    .btn {
+      display: inline-block;
+      margin-top: 25px;
+      padding: 14px 28px;
+      background: linear-gradient(90deg, #ff2f92, #b400ff);
+      color: white;
+      text-decoration: none;
+      border-radius: 30px;
+      font-weight: 600;
+      transition: transform .2s, opacity .2s;
+    }
+
+    .btn:hover {
+      transform: scale(1.05);
+      opacity: 0.9;
     }
 
     footer {
-      background: #0d0d16;
-      padding: 25px;
       text-align: center;
-      border-top: 1px solid #1e1e2f;
+      padding: 25px;
+      background: #0a0a12;
+      font-size: 13px;
       color: #888;
-      font-size: 14px;
     }
   </style>
 </head>
@@ -167,96 +151,94 @@
 <body>
 
 <header>
-  <h1>NOVA ROLEPLAY</h1>
-  <p>Gerçekçilik • Adalet • Kalite</p>
+  <h1>Nova Roleplay</h1>
+  <nav>
+    <a href="#about">Hakkımızda</a>
+    <a href="#policies">Politikalar</a>
+    <a href="https://discord.gg/ADSW7dkSha" target="_blank">Discord</a>
+  </nav>
 </header>
 
-<nav>
-  <a href="#">Anasayfa</a>
-  <a href="#neden">Neden Nova?</a>
-  <a href="#hakkimizda">Hakkımızda</a>
-  <a href="#politikalar">Politikalar</a>
-  <a href="#" onclick="discordaGit()">Discord</a>
-</nav>
-
-<div class="hero">
-  <h2>Türkiye'nin Yeni Nesil Roleplay Deneyimi</h2>
-  <p>
-    Nova Roleplay, kaliteli RP anlayışı, güçlü yönetimi ve aktif topluluğu ile
-    oyunculara benzersiz bir deneyim sunar.
-  </p>
-  <button onclick="discordaGit()">Discord'a Katıl</button>
-</div>
-
-<section id="neden">
-  <h3>Neden Nova Roleplay?</h3>
-  <div class="cards">
-    <div class="card">
-      <h4>👮 Aktif Yetkili Kadrosu</h4>
-      <p>Yetkililer her zaman aktiftir ve oyuncularla birebir ilgilenir.</p>
-    </div>
-    <div class="card">
-      <h4>⚖️ Adaletli Sistem</h4>
-      <p>Kurallar herkes için eşittir, torpile yer yoktur.</p>
-    </div>
-    <div class="card">
-      <h4>🎭 Kaliteli RP</h4>
-      <p>Gerçekçi, hikâye odaklı ve kurallı roleplay ortamı.</p>
-    </div>
-    <div class="card">
-      <h4>🚀 Performans</h4>
-      <p>Optimize altyapı ile akıcı ve stabil oyun deneyimi.</p>
-    </div>
-  </div>
-</section>
-
-<section id="hakkimizda">
-  <h3>Hakkımızda</h3>
+<!-- HAKKIMIZDA -->
+<section id="about">
+  <h2>Hakkımızda</h2>
   <div class="card">
     <p>
-      Nova Roleplay, roleplay kültürünü en üst seviyeye taşımayı hedefleyen,
-      adalet ve kaliteyi temel alan bir RP sunucusudur.
-      Amacımız oyunculara sadece bir oyun değil, yaşayan bir şehir deneyimi sunmaktır.
+      Nova Roleplay, gerçekçiliği esas alan, Amerikan konseptine uygun ve
+      rol kalitesini ön planda tutan bir roleplay sunucusudur.
+      Amacımız; adil yönetim, dengeli rol ortamı ve uzun soluklu
+      hikâyelerle oyunculara kaliteli bir RP deneyimi sunmaktır.
+    </p>
+  </div>
+
+  <h2 style="margin-top:50px;">Neden Nova Roleplay?</h2>
+
+  <div class="reasons">
+    <div class="reason">
+      <h3>Aktif Yetkili Ekibi</h3>
+      <p>Sunucu düzeni ve rol kalitesi sürekli denetlenir.</p>
+    </div>
+
+    <div class="reason">
+      <h3>Adil Oyun Ortamı</h3>
+      <p>Herkes kurallara eşit şekilde tabidir.</p>
+    </div>
+
+    <div class="reason">
+      <h3>Gerçekçi RP</h3>
+      <p>Amerikan konseptine uygun, mantıklı roller.</p>
+    </div>
+
+    <div class="reason">
+      <h3>Şeffaf Yönetim</h3>
+      <p>Tüm kararlar kurallar çerçevesinde alınır.</p>
+    </div>
+  </div>
+
+  <a class="btn" href="https://discord.gg/ADSW7dkSha" target="_blank">Discord'a Katıl</a>
+</section>
+
+<!-- POLİTİKALAR -->
+<section id="policies">
+  <h2>Politikalar</h2>
+
+  <div class="policy card">
+    <h3>Terörizm ve Yasa Dışı Roller</h3>
+    <p>
+      Kolluk kuvvetlerine sebepsiz saldırılar, planlı kaos oluşturma,
+      kamu kurumlarına yönelik her türlü saldırı rolü kesinlikle yasaktır.
+      Bu tür ihlaller CK ve kalıcı yaptırımlar ile sonuçlanabilir.
+    </p>
+  </div>
+
+  <div class="policy card">
+    <h3>Emotesiz Ateş</h3>
+    <p>
+      Ölümcül güç kullanılmadan önce uygun emote verilmesi zorunludur.
+      Savunma amaçlı refleks durumları istisna olarak değerlendirilir.
+    </p>
+  </div>
+
+  <div class="policy card">
+    <h3>Karakter Ölümü (CK)</h3>
+    <p>
+      CK, karakterin kalıcı olarak silinmesidir.
+      Geçerli rol, mantık ve yetkili onayı olmadan uygulanamaz.
+    </p>
+  </div>
+
+  <div class="policy card">
+    <h3>Deathmatch (DM)</h3>
+    <p>
+      Sebepsiz şiddet, rol dışı saldırılar ve çatışmalar DM kapsamındadır
+      ve ağır cezalarla sonuçlanır.
     </p>
   </div>
 </section>
 
-<section id="politikalar">
-  <h3>Politikalar</h3>
-  <div class="cards">
-    <div class="card">
-      <h4>Genel Kurallar</h4>
-      <p>RP dışı davranışlar, hakaret ve exploit kesinlikle yasaktır.</p>
-    </div>
-    <div class="card">
-      <h4>Roleplay Kuralları</h4>
-      <p>FearRP, MetaGaming ve PowerGaming yasaktır.</p>
-    </div>
-    <div class="card">
-      <h4>Ceza Politikası</h4>
-      <p>İhlaller kademeli ceza sistemiyle değerlendirilir.</p>
-    </div>
-  </div>
-</section>
-
 <footer>
-  © 2026 Nova Roleplay • Tüm Hakları Saklıdır
+  © 2026 Nova Roleplay | Tüm Hakları Saklıdır
 </footer>
-
-<script>
-  function discordaGit() {
-    window.open("https://discord.gg/xxxxx", "_blank");
-  }
-
-  const sections = document.querySelectorAll("section");
-  window.addEventListener("scroll", () => {
-    sections.forEach(sec => {
-      if (sec.getBoundingClientRect().top < window.innerHeight - 100) {
-        sec.classList.add("show");
-      }
-    });
-  });
-</script>
 
 </body>
 </html>
