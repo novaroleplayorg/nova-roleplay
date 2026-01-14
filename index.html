@@ -2,289 +2,224 @@
 <html lang="tr">
 <head>
 <meta charset="UTF-8">
-<title>Nova Roleplay | Resmi Site</title>
+<title>Nova Roleplay</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Inter',sans-serif}
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Montserrat',sans-serif}
 html{scroll-behavior:smooth}
-body{
-  background:#090910;
-  color:#eaeaf0;
-  overflow-x:hidden;
-}
+body{background:#0b0b12;color:#fff}
 
-/* ===== ARKA PLAN PARTİKÜL ===== */
-canvas{
-  position:fixed;
-  top:0;left:0;
-  width:100%;height:100%;
-  z-index:-1;
-}
-
-/* ===== HEADER ===== */
+/* HEADER */
 header{
-  position:sticky;
-  top:0;
-  z-index:10;
-  background:linear-gradient(90deg,#ff2f92,#b400ff);
-  padding:16px 50px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  box-shadow:0 0 35px rgba(255,80,200,.5)
+background:linear-gradient(135deg,#8f3cff,#c77dff);
+padding:30px;
+text-align:center;
+box-shadow:0 0 30px rgba(180,100,255,.6)
 }
-header h1{font-size:22px;font-weight:700}
+header h1{font-size:34px;letter-spacing:2px}
+header p{opacity:.9;margin-top:8px}
+
+/* NAV */
+nav{
+background:#11111b;
+display:flex;
+justify-content:center;
+gap:35px;
+padding:16px;
+border-bottom:1px solid #24244a
+}
 nav a{
-  margin-left:24px;
-  color:#fff;
-  text-decoration:none;
-  position:relative;
+color:#d1c0ff;
+text-decoration:none;
+font-weight:600;
+transition:.3s
 }
-nav a::after{
-  content:"";
-  position:absolute;
-  left:0;bottom:-6px;
-  width:0;height:2px;
-  background:#fff;
-  transition:.3s
-}
-nav a:hover::after{width:100%}
-
-/* ===== SECTION GEÇİŞ ===== */
-section{
-  padding:90px 12%;
-  animation:fadeUp .9s ease both;
-}
-@keyframes fadeUp{
-  from{opacity:0;transform:translateY(40px) blur(6px)}
-  to{opacity:1;transform:none}
+nav a:hover{
+color:#fff;
+text-shadow:0 0 12px #b366ff
 }
 
-h2{
-  font-size:34px;
-  color:#ff66cc;
-  margin-bottom:20px;
-  text-shadow:0 0 12px rgba(255,90,200,.5)
+/* HERO */
+.hero{
+padding:90px 20px;
+text-align:center;
+background:radial-gradient(circle at top,#240046,#0b0b12)
 }
-p{line-height:1.9;color:#cfcfe6}
+.hero h2{font-size:40px;margin-bottom:15px}
+.hero p{max-width:650px;margin:auto;opacity:.85}
+.hero button{
+margin-top:35px;
+padding:16px 42px;
+border:none;
+border-radius:30px;
+background:linear-gradient(135deg,#9d4edd,#c77dff);
+color:#fff;
+font-weight:700;
+cursor:pointer;
+transition:.3s;
+box-shadow:0 0 25px rgba(200,120,255,.7)
+}
+.hero button:hover{
+transform:scale(1.08);
+box-shadow:0 0 45px rgba(220,150,255,1)
+}
 
-/* ===== KART ===== */
+/* SECTION */
+section{padding:70px 20px;max-width:1100px;margin:auto}
+section h3{
+text-align:center;
+font-size:30px;
+color:#e0c3ff;
+margin-bottom:45px
+}
+
+/* CARDS */
+.cards{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:25px
+}
 .card{
-  background:#151528;
-  border-radius:18px;
-  padding:28px;
-  margin-top:25px;
-  position:relative;
-  transition:.4s;
-  box-shadow:0 0 20px rgba(0,0,0,.6)
+background:#14142a;
+padding:25px;
+border-radius:18px;
+border:1px solid #2b2b55;
+transition:.35s;
+box-shadow:0 0 18px rgba(0,0,0,.6)
 }
-.card::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:radial-gradient(circle at var(--x) var(--y),
-  rgba(255,80,200,.25),transparent 45%);
-  opacity:0;
-  transition:.3s
-}
-.card:hover::before{opacity:1}
 .card:hover{
-  transform:translateY(-10px) scale(1.02);
-  box-shadow:0 0 40px rgba(255,80,200,.5)
+transform:translateY(-10px);
+border-color:#b366ff;
+box-shadow:0 0 35px rgba(180,100,255,.7)
 }
+.card h4{color:#d7b6ff;margin-bottom:10px}
 
-/* ===== NEDEN NOVA ===== */
-.reasons{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:25px;
-  margin-top:30px
-}
-.reason{
-  background:#18182c;
-  padding:22px;
-  border-radius:16px;
-  transition:.3s
-}
-.reason:hover{
-  transform:translateY(-8px);
-  box-shadow:0 0 30px rgba(255,80,200,.4)
-}
-.reason h3{color:#ff66cc;margin-bottom:8px}
-
-/* ===== BUTON ===== */
-.btn{
-  display:inline-block;
-  margin-top:35px;
-  padding:14px 36px;
-  border-radius:40px;
-  background:linear-gradient(90deg,#ff2f92,#b400ff);
-  color:#fff;
-  text-decoration:none;
-  font-weight:600;
-  position:relative;
-  overflow:hidden;
-  box-shadow:0 0 25px rgba(255,80,200,.6)
-}
-.btn::after{
-  content:"";
-  position:absolute;
-  top:0;left:-100%;
-  width:100%;height:100%;
-  background:linear-gradient(120deg,transparent,rgba(255,255,255,.6),transparent);
-  transition:.6s
-}
-.btn:hover::after{left:100%}
-.btn:hover{transform:scale(1.08)}
-
-/* ===== ACCORDION ===== */
+/* ACCORDION */
 .accordion{
-  margin-top:25px;
-  border-radius:14px;
-  overflow:hidden
+background:#14142a;
+border:1px solid #2b2b55;
+border-radius:14px;
+margin-bottom:15px;
+overflow:hidden
 }
-.acc-item{
-  border-bottom:1px solid #26263f
+.accordion summary{
+padding:18px;
+cursor:pointer;
+font-weight:600;
+color:#e6d4ff;
+list-style:none;
+transition:.3s
 }
-.acc-title{
-  background:#17172a;
-  padding:18px;
-  cursor:pointer;
-  font-weight:600;
-  transition:.3s
+.accordion summary:hover{
+background:#1c1c3a;
+text-shadow:0 0 10px #b366ff
 }
-.acc-title:hover{
-  background:#1f1f3a;
-  color:#ff66cc
+.accordion p, .accordion div{
+padding:18px;
+font-size:14px;
+line-height:1.7;
+opacity:.9
 }
-.acc-content{
-  max-height:0;
-  overflow:hidden;
-  background:#121222;
-  padding:0 18px;
-  transition:max-height .5s ease
-}
-.acc-content p{padding:15px 0}
 
-/* ===== FOOTER ===== */
+/* FOOTER */
 footer{
-  text-align:center;
-  padding:28px;
-  background:#08080f;
-  border-top:1px solid #1f1f33;
-  color:#777;
-  font-size:13px
+background:#0d0d16;
+padding:25px;
+text-align:center;
+border-top:1px solid #24244a;
+color:#888;
+font-size:14px
 }
 </style>
 </head>
 
 <body>
 
-<canvas id="bg"></canvas>
-
 <header>
-  <h1>Nova Roleplay</h1>
-  <nav>
-    <a href="#about">Hakkımızda</a>
-    <a href="#policies">Politikalar</a>
-    <a href="https://discord.gg/ADSW7dkSha" target="_blank">Discord</a>
-  </nav>
+<h1>NOVA ROLEPLAY</h1>
+<p>Gerçekçilik • Adalet • Kalite</p>
 </header>
 
-<section id="about">
-<h2>Hakkımızda</h2>
+<nav>
+<a href="#anasayfa">Anasayfa</a>
+<a href="#hakkimizda">Hakkımızda</a>
+<a href="#politikalar">Politikalar</a>
+<a href="https://discord.gg/ADSW7dkSha" target="_blank">Discord</a>
+</nav>
+
+<div class="hero" id="anasayfa">
+<h2>Türkiye'nin En Güçlü Roleplay Deneyimi</h2>
+<p>
+Nova Roleplay, gerçekçi senaryolar, disiplinli yönetim ve kaliteli rol ortamı
+ile oyuncularına üst düzey bir RP deneyimi sunar.
+</p>
+<button onclick="window.open('https://discord.gg/ADSW7dkSha','_blank')">
+Discord'a Katıl
+</button>
+</div>
+
+<section id="hakkimizda">
+<h3>Neden Nova Roleplay?</h3>
+<div class="cards">
 <div class="card">
-<p>
-Nova Roleplay, Amerikan konseptine uygun, gerçekçiliği esas alan ve
-uzun soluklu hikâyeler üzerine kurulu bir roleplay sunucusudur.
-Adil yönetim anlayışı ve aktif yetkili kadrosu ile kalıcı bir RP ortamı sunar.
-</p>
+<h4>Aktif Yetkili Kadro</h4>
+<p>Sunucu düzenini sağlayan, tarafsız ve sürekli aktif yetkili ekibi.</p>
 </div>
-
-<h2 style="margin-top:50px">Neden Nova Roleplay?</h2>
-<div class="reasons">
-<div class="reason"><h3>Aktif Yetkililer</h3><p>Sürekli denetim ve düzen.</p></div>
-<div class="reason"><h3>Adil Sistem</h3><p>Herkes kurallara eşittir.</p></div>
-<div class="reason"><h3>Gerçekçilik</h3><p>Amerikan RP konsepti.</p></div>
-<div class="reason"><h3>Kalıcı Hikâye</h3><p>Geçici kaos yok.</p></div>
+<div class="card">
+<h4>Gerçekçi RP Anlayışı</h4>
+<p>Amerikan konseptine uygun, kurallı ve hikâye odaklı rol ortamı.</p>
 </div>
-
-<a class="btn" href="https://discord.gg/ADSW7dkSha" target="_blank">Discord'a Katıl</a>
-</section>
-
-<section id="policies">
-<h2>Politikalar</h2>
-
-<div class="accordion">
-<div class="acc-item">
-<div class="acc-title">Genel Rol Kuralları</div>
-<div class="acc-content">
-<p>
-Sunucu içerisinde tüm roller gerçekçilik ve Amerikan konsepti
-çerçevesinde yürütülür. Kuralların ihlali durumunda yetkili ekip
-yaptırım uygulama hakkına sahiptir.
-</p>
-</div>
-</div>
-
-<div class="acc-item">
-<div class="acc-title">Karakter Ölümü (CK)</div>
-<div class="acc-content">
-<p>
-Karakter Ölümü, bir karakterin kalıcı olarak sonlandırılmasıdır
-ve yalnızca geçerli, mantıklı ve detaylı roller sonucunda uygulanır.
-</p>
-</div>
+<div class="card">
+<h4>Adil ve Şeffaf Sistem</h4>
+<p>Tüm oyuncular için eşit uygulanan kurallar ve açık yönetim politikası.</p>
 </div>
 </div>
 </section>
 
-<footer>© 2026 Nova Roleplay • Tüm Hakları Saklıdır</footer>
+<section id="politikalar">
+<h3>Sunucu Politikaları</h3>
 
-<script>
-/* ==== Mouse Glow ==== */
-document.querySelectorAll('.card').forEach(c=>{
-c.addEventListener('mousemove',e=>{
-const r=c.getBoundingClientRect();
-c.style.setProperty('--x',`${e.clientX-r.left}px`);
-c.style.setProperty('--y',`${e.clientY-r.top}px`);
-});
-});
+<details class="accordion">
+<summary>🚨 Emotesiz Ateş</summary>
+<div>
+Bir oyuncunun, başka bir oyuncuya karşı ölümcül kuvvet kullanmadan önce bu eylemi
+uygun şekilde role dökmesi zorunludur. Savunma amacıyla refleksif karşılık verilen
+durumlarda emote şartı aranmaz. Kuralın kötüye kullanımı ağır yaptırımlarla sonuçlanır.
+</div>
+</details>
 
-/* ==== Accordion ==== */
-document.querySelectorAll('.acc-title').forEach(t=>{
-t.onclick=()=>{
-const c=t.nextElementSibling;
-c.style.maxHeight=c.style.maxHeight?null:c.scrollHeight+"px";
-};
-});
+<details class="accordion">
+<summary>🚨 GunRP – Agresif RP</summary>
+<div>
+Sebepsiz düşmanlık oluşturmak, agresif tavır sergilemek ve gerekçesiz saldırılar
+yasaktır. Ateş açma hakkı yalnızca geçerli RP temeline dayanan senaryolarda mümkündür.
+</div>
+</details>
 
-/* ==== PARTİKÜL ==== */
-const canvas=document.getElementById("bg");
-const ctx=canvas.getContext("2d");
-canvas.width=innerWidth;
-canvas.height=innerHeight;
-let p=[];
-for(let i=0;i<60;i++){
-p.push({x:Math.random()*canvas.width,y:Math.random()*canvas.height,r:Math.random()*2+1})
-}
-function draw(){
-ctx.clearRect(0,0,canvas.width,canvas.height);
-p.forEach(o=>{
-ctx.beginPath();
-ctx.arc(o.x,o.y,o.r,0,Math.PI*2);
-ctx.fillStyle="rgba(255,80,200,.4)";
-ctx.fill();
-o.y+=.2;
-if(o.y>canvas.height)o.y=0;
-});
-requestAnimationFrame(draw);
-}
-draw();
-</script>
+<details class="accordion">
+<summary>🚨 Güvenli Bölge</summary>
+<div>
+Güvenli bölgelerde her türlü agresif ve yasa dışı rol yasaktır. Bu alanlar IC olarak
+kolluk kuvvetleri tarafından korunur ve ihlaller ağır cezalarla sonuçlanır.
+</div>
+</details>
+
+<details class="accordion">
+<summary>🚨 Rolden Kaçma</summary>
+<div>
+Rol esnasında kasıtlı olarak oyundan çıkmak, rolü bozmak veya avantaj sağlamak
+kesinlikle yasaktır. Teknik sorunlar oyuncunun sorumluluğundadır.
+</div>
+</details>
+
+</section>
+
+<footer>
+© 2026 Nova Roleplay • Tüm Hakları Saklıdır
+</footer>
 
 </body>
 </html>
