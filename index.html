@@ -1,123 +1,212 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-<meta charset="UTF-8">
-<title>Nova Roleplay | Resmi Site</title>
+  <meta charset="UTF-8">
+  <title>TRP Roleplay</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&display=swap" rel="stylesheet">
+  <!-- FONT -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
 
-<style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:'Orbitron', sans-serif;
-}
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Montserrat', sans-serif;
+    }
 
-body{
-    background:#0b0614;
-    color:#e0d7ff;
-    display:flex;
-    height:100vh;
-    overflow:hidden;
-}
+    body {
+      background: #0b0b12;
+      color: #fff;
+    }
 
-/* SIDEBAR */
-.sidebar{
-    width:260px;
-    background:linear-gradient(180deg,#140a25,#0b0614);
-    box-shadow:0 0 20px #7a3cff;
-    padding:20px;
-}
+    /* HEADER */
+    header {
+      background: linear-gradient(135deg, #6a00ff, #8f00ff);
+      padding: 25px;
+      text-align: center;
+      box-shadow: 0 0 25px rgba(140, 0, 255, 0.6);
+    }
 
-.logo{
-    text-align:center;
-    font-size:22px;
-    color:#b784ff;
-    text-shadow:0 0 15px #7a3cff;
-    margin-bottom:30px;
-}
+    header h1 {
+      font-size: 32px;
+      font-weight: 700;
+      letter-spacing: 2px;
+    }
 
-.menu a{
-    display:block;
-    padding:14px;
-    margin-bottom:10px;
-    color:#d6c8ff;
-    text-decoration:none;
-    border-radius:6px;
-    transition:.3s;
-}
+    header p {
+      margin-top: 8px;
+      opacity: 0.9;
+    }
 
-.menu a:hover{
-    background:#1b1033;
-    box-shadow:0 0 15px #7a3cff;
-    transform:translateX(6px);
-}
+    /* NAVBAR */
+    nav {
+      background: #11111b;
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      padding: 15px 0;
+      border-bottom: 1px solid #1e1e2f;
+    }
 
-/* CONTENT */
-.content{
-    flex:1;
-    padding:40px;
-    overflow-y:auto;
-    animation:fadeIn .6s ease;
-}
+    nav a {
+      color: #c9b6ff;
+      text-decoration: none;
+      font-weight: 600;
+      transition: 0.3s;
+    }
 
-.card{
-    background:#120a22;
-    border:1px solid #7a3cff55;
-    box-shadow:0 0 25px #7a3cff55;
-    border-radius:10px;
-    padding:25px;
-    margin-bottom:25px;
-}
+    nav a:hover {
+      color: #ffffff;
+      text-shadow: 0 0 10px #9b5cff;
+    }
 
-.card h2{
-    color:#caa8ff;
-    margin-bottom:10px;
-}
+    /* HERO */
+    .hero {
+      text-align: center;
+      padding: 80px 20px;
+      background: radial-gradient(circle at top, #1a0033, #0b0b12);
+    }
 
-.card p{
-    color:#d8ceff;
-    line-height:1.6;
-}
+    .hero h2 {
+      font-size: 38px;
+      margin-bottom: 15px;
+    }
 
-/* ANIMATION */
-@keyframes fadeIn{
-    from{opacity:0; transform:translateY(15px);}
-    to{opacity:1; transform:translateY(0);}
-}
-</style>
+    .hero p {
+      max-width: 600px;
+      margin: auto;
+      opacity: 0.85;
+    }
+
+    .hero button {
+      margin-top: 30px;
+      padding: 15px 40px;
+      font-size: 16px;
+      font-weight: 700;
+      border: none;
+      border-radius: 30px;
+      background: linear-gradient(135deg, #7b2cff, #b366ff);
+      color: #fff;
+      cursor: pointer;
+      box-shadow: 0 0 20px rgba(160, 80, 255, 0.6);
+      transition: 0.3s;
+    }
+
+    .hero button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 35px rgba(200, 120, 255, 0.9);
+    }
+
+    /* SECTIONS */
+    section {
+      padding: 60px 20px;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    section h3 {
+      text-align: center;
+      margin-bottom: 40px;
+      font-size: 28px;
+      color: #d4b3ff;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+    }
+
+    .card {
+      background: #131326;
+      padding: 25px;
+      border-radius: 16px;
+      border: 1px solid #24244a;
+      transition: 0.3s;
+      box-shadow: 0 0 15px rgba(0,0,0,0.6);
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 0 25px rgba(160, 80, 255, 0.6);
+      border-color: #7b2cff;
+    }
+
+    .card h4 {
+      margin-bottom: 10px;
+      color: #b88cff;
+    }
+
+    .card p {
+      font-size: 14px;
+      opacity: 0.85;
+      line-height: 1.6;
+    }
+
+    /* FOOTER */
+    footer {
+      background: #0d0d16;
+      padding: 25px;
+      text-align: center;
+      border-top: 1px solid #1e1e2f;
+      color: #888;
+      font-size: 14px;
+    }
+  </style>
 </head>
 
 <body>
 
-<div class="sidebar">
-    <div class="logo">NOVA ROLEPLAY</div>
-    <div class="menu">
-        <a href="#">Ana Sayfa</a>
-        <a href="#">Kurallar</a>
-        <a href="#">Politikalar</a>
-        <a href="#">Yetkili Bilgileri</a>
-        <a href="#">İletişim</a>
-    </div>
-</div>
+  <header>
+    <h1>TRP ROLEPLAY</h1>
+    <p>Gerçekçilik • Adalet • Kalite</p>
+  </header>
 
-<div class="content">
-    <div class="card">
-        <h2>Hoş Geldiniz</h2>
-        <p>
-            Nova Roleplay resmi web sitesine hoş geldiniz.
-            Bu sayfa sunucu kuralları, politikalar ve bilgilendirme amacıyla hazırlanmıştır.
-        </p>
-    </div>
+  <nav>
+    <a href="#">Anasayfa</a>
+    <a href="#">Kurallar</a>
+    <a href="#">Hakkımızda</a>
+    <a href="#">Discord</a>
+  </nav>
 
-    <div class="card">
-        <h2>Resmi Bilgilendirme</h2>
-        <p>
-            Sunucu ile ilgili tüm güncel duyurular ve açıklamalar bu site üzerinden paylaşılır.
-        </p>
+  <div class="hero">
+    <h2>Türkiye'nin En Güçlü Roleplay Deneyimi</h2>
+    <p>
+      TRP Roleplay, adil yönetim, aktif yetkililer ve gerçekçi senaryolar ile
+      benzersiz bir RP deneyimi sunar.
+    </p>
+    <button onclick="discordaGit()">Discord'a Katıl</button>
+  </div>
+
+  <section>
+    <h3>Neden TRP?</h3>
+    <div class="cards">
+      <div class="card">
+        <h4>Adil Yönetim</h4>
+        <p>Tarafsız admin ekibi ve şeffaf ceza sistemi.</p>
+      </div>
+      <div class="card">
+        <h4>Aktif Oyuncular</h4>
+        <p>Her saat dolu sunucu ve aktif roleplay ortamı.</p>
+      </div>
+      <div class="card">
+        <h4>Gerçekçi RP</h4>
+        <p>Kurallı, kaliteli ve hikâye odaklı RP sistemi.</p>
+      </div>
     </div>
-</div>
+  </section>
+
+  <footer>
+    © 2026 TRP Roleplay • Tüm Hakları Saklıdır
+  </footer>
+
+  <script>
+    function discordaGit() {
+      window.open("https://discord.gg/xxxxx", "_blank");
+    }
+  </script>
 
 </body>
 </html>
