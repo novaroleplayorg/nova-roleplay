@@ -16,24 +16,22 @@
       font-family: 'Montserrat', sans-serif;
     }
 
-    html {
-      scroll-behavior: smooth;
-    }
-
     body {
-      background: radial-gradient(circle at top, #1a0033, #0b0b12);
+      background: #0b0b12;
       color: #fff;
     }
 
+    /* HEADER */
     header {
-      background: linear-gradient(135deg, #6a00ff, #8f00ff);
-      padding: 30px;
+      background: linear-gradient(135deg, #b84cff, #8f00ff);
+      padding: 28px;
       text-align: center;
-      box-shadow: 0 0 25px rgba(140, 0, 255, 0.6);
+      box-shadow: 0 0 20px rgba(180, 80, 255, 0.5);
     }
 
     header h1 {
-      font-size: 34px;
+      font-size: 32px;
+      font-weight: 700;
       letter-spacing: 2px;
     }
 
@@ -42,6 +40,7 @@
       opacity: 0.9;
     }
 
+    /* NAVBAR */
     nav {
       background: #11111b;
       display: flex;
@@ -49,9 +48,6 @@
       gap: 30px;
       padding: 15px 0;
       border-bottom: 1px solid #1e1e2f;
-      position: sticky;
-      top: 0;
-      z-index: 10;
     }
 
     nav a {
@@ -62,12 +58,50 @@
     }
 
     nav a:hover {
-      color: #fff;
+      color: #ffffff;
       text-shadow: 0 0 10px #9b5cff;
     }
 
+    /* HERO */
+    .hero {
+      text-align: center;
+      padding: 80px 20px;
+      background: radial-gradient(circle at top, #1a0033, #0b0b12);
+    }
+
+    .hero h2 {
+      font-size: 38px;
+      margin-bottom: 15px;
+    }
+
+    .hero p {
+      max-width: 600px;
+      margin: auto;
+      opacity: 0.85;
+    }
+
+    .hero button {
+      margin-top: 30px;
+      padding: 15px 40px;
+      font-size: 16px;
+      font-weight: 700;
+      border: none;
+      border-radius: 30px;
+      background: linear-gradient(135deg, #9b4dff, #c77dff);
+      color: #fff;
+      cursor: pointer;
+      box-shadow: 0 0 20px rgba(160, 80, 255, 0.6);
+      transition: 0.3s;
+    }
+
+    .hero button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 35px rgba(200, 120, 255, 0.9);
+    }
+
+    /* SECTION */
     section {
-      padding: 70px 20px;
+      padding: 60px 20px;
       max-width: 1100px;
       margin: auto;
       opacity: 0;
@@ -87,41 +121,6 @@
       color: #d4b3ff;
     }
 
-    .hero {
-      text-align: center;
-      padding: 90px 20px;
-    }
-
-    .hero h2 {
-      font-size: 40px;
-      margin-bottom: 15px;
-    }
-
-    .hero p {
-      max-width: 650px;
-      margin: auto;
-      opacity: 0.85;
-    }
-
-    .hero button {
-      margin-top: 30px;
-      padding: 15px 45px;
-      font-size: 16px;
-      font-weight: 700;
-      border: none;
-      border-radius: 30px;
-      background: linear-gradient(135deg, #7b2cff, #b366ff);
-      color: #fff;
-      cursor: pointer;
-      box-shadow: 0 0 20px rgba(160, 80, 255, 0.6);
-      transition: 0.3s;
-    }
-
-    .hero button:hover {
-      transform: scale(1.08);
-      box-shadow: 0 0 40px rgba(200, 120, 255, 0.9);
-    }
-
     .cards {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -139,8 +138,19 @@
 
     .card:hover {
       transform: translateY(-8px);
-      box-shadow: 0 0 30px rgba(160, 80, 255, 0.7);
-      border-color: #7b2cff;
+      box-shadow: 0 0 25px rgba(160, 80, 255, 0.6);
+      border-color: #9b4dff;
+    }
+
+    .card h4 {
+      margin-bottom: 10px;
+      color: #caa3ff;
+    }
+
+    .card p {
+      font-size: 14px;
+      opacity: 0.85;
+      line-height: 1.6;
     }
 
     footer {
@@ -162,36 +172,70 @@
 </header>
 
 <nav>
-  <a href="#anasayfa">Anasayfa</a>
-  <a href="#kurallar">Kurallar</a>
+  <a href="#">Anasayfa</a>
+  <a href="#neden">Neden Nova?</a>
   <a href="#hakkimizda">Hakkımızda</a>
+  <a href="#politikalar">Politikalar</a>
   <a href="#" onclick="discordaGit()">Discord</a>
 </nav>
 
-<section id="anasayfa" class="hero">
-  <h2>Gerçek Roleplay Deneyimi</h2>
+<div class="hero">
+  <h2>Türkiye'nin Yeni Nesil Roleplay Deneyimi</h2>
   <p>
-    Nova Roleplay, kaliteli RP anlayışı, adil yönetim ve güçlü topluluk yapısı
-    ile oyunculara gerçekçi bir şehir hayatı sunar.
+    Nova Roleplay, kaliteli RP anlayışı, güçlü yönetimi ve aktif topluluğu ile
+    oyunculara benzersiz bir deneyim sunar.
   </p>
   <button onclick="discordaGit()">Discord'a Katıl</button>
+</div>
+
+<section id="neden">
+  <h3>Neden Nova Roleplay?</h3>
+  <div class="cards">
+    <div class="card">
+      <h4>👮 Aktif Yetkili Kadrosu</h4>
+      <p>Yetkililer her zaman aktiftir ve oyuncularla birebir ilgilenir.</p>
+    </div>
+    <div class="card">
+      <h4>⚖️ Adaletli Sistem</h4>
+      <p>Kurallar herkes için eşittir, torpile yer yoktur.</p>
+    </div>
+    <div class="card">
+      <h4>🎭 Kaliteli RP</h4>
+      <p>Gerçekçi, hikâye odaklı ve kurallı roleplay ortamı.</p>
+    </div>
+    <div class="card">
+      <h4>🚀 Performans</h4>
+      <p>Optimize altyapı ile akıcı ve stabil oyun deneyimi.</p>
+    </div>
+  </div>
 </section>
 
 <section id="hakkimizda">
   <h3>Hakkımızda</h3>
   <div class="card">
-    Nova Roleplay; rol kalitesini ön planda tutan, adaletli yönetim anlayışı ile
-    oyuncularına uzun soluklu ve sürdürülebilir bir roleplay ortamı sunmayı
-    hedefleyen bir topluluktur. Burada herkesin hikâyesi değerlidir ve her rol
-    ciddiyetle ele alınır.
+    <p>
+      Nova Roleplay, roleplay kültürünü en üst seviyeye taşımayı hedefleyen,
+      adalet ve kaliteyi temel alan bir RP sunucusudur.
+      Amacımız oyunculara sadece bir oyun değil, yaşayan bir şehir deneyimi sunmaktır.
+    </p>
   </div>
 </section>
 
-<section id="kurallar">
-  <h3>Kurallar</h3>
-  <div class="card">
-    Kurallar yakında detaylı olarak eklenecektir. Tüm oyuncuların adil ve
-    kaliteli bir RP deneyimi yaşaması için hazırlanır.
+<section id="politikalar">
+  <h3>Politikalar</h3>
+  <div class="cards">
+    <div class="card">
+      <h4>Genel Kurallar</h4>
+      <p>RP dışı davranışlar, hakaret ve exploit kesinlikle yasaktır.</p>
+    </div>
+    <div class="card">
+      <h4>Roleplay Kuralları</h4>
+      <p>FearRP, MetaGaming ve PowerGaming yasaktır.</p>
+    </div>
+    <div class="card">
+      <h4>Ceza Politikası</h4>
+      <p>İhlaller kademeli ceza sistemiyle değerlendirilir.</p>
+    </div>
   </div>
 </section>
 
@@ -201,20 +245,17 @@
 
 <script>
   function discordaGit() {
-    window.open("https://discord.gg/ADSW7dkSha", "_blank");
+    window.open("https://discord.gg/xxxxx", "_blank");
   }
 
   const sections = document.querySelectorAll("section");
-
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("show");
+  window.addEventListener("scroll", () => {
+    sections.forEach(sec => {
+      if (sec.getBoundingClientRect().top < window.innerHeight - 100) {
+        sec.classList.add("show");
       }
     });
-  }, { threshold: 0.2 });
-
-  sections.forEach(section => observer.observe(section));
+  });
 </script>
 
 </body>
