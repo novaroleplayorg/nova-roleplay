@@ -163,7 +163,8 @@ h2{
     opacity:1;
     transform:translateY(0);
 }
-</style
+</style>
+<style>
 /* eski css'ler burada */
 
 /* MOR IŞIK EFEKTİ */
@@ -196,9 +197,55 @@ h2{
 .card:hover {
     transform: translateY(-4px);
 }
+    .card::after {
+    content: "";
+    position: absolute;
+    inset: -2px;
+    border-radius: 16px;
+    background: linear-gradient(
+        270deg,
+        #7f3cff,
+        #b86bff,
+        #7f3cff
+    );
+    background-size: 400% 400%;
+    z-index: -2;
+    filter: blur(6px);
+    animation: neonFlow 6s linear infinite;
+    opacity: 0.8;
+}
+
+@keyframes neonFlow {
+    0% {
+        background-position: 0% 50%;
+    }
+    100% {
+        background-position: 400% 50%;
+    }
+}
+.card {
+    animation: pulseGlow 3.5s ease-in-out infinite;
+}
+
+@keyframes pulseGlow {
+    0% {
+        box-shadow: 0 0 10px rgba(127, 60, 255, 0.3);
+    }
+    50% {
+        box-shadow: 0 0 22px rgba(184, 107, 255, 0.6);
+    }
+    100% {
+        box-shadow: 0 0 10px rgba(127, 60, 255, 0.3);
+    }
+}
+.card:active {
+    transform: scale(0.97);
+    box-shadow: 0 0 35px rgba(184, 107, 255, 0.9);
+}
+
 </style>
 
-    
+
 </head>
 
 <body>
