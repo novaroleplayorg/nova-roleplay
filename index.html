@@ -163,7 +163,42 @@ h2{
     opacity:1;
     transform:translateY(0);
 }
+</style
+/* eski css'ler burada */
+
+/* MOR IŞIK EFEKTİ */
+.card {
+    position: relative;
+    transition: all 0.35s ease;
+}
+
+.card::before {
+    content: "";
+    position: absolute;
+    inset: -2px;
+    border-radius: 16px;
+    background: linear-gradient(
+        120deg,
+        #7f3cff,
+        #b86bff,
+        #7f3cff
+    );
+    opacity: 0;
+    z-index: -1;
+    filter: blur(10px);
+    transition: opacity 0.35s ease;
+}
+
+.card:hover::before {
+    opacity: 1;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+}
 </style>
+
+    
 </head>
 
 <body>
