@@ -1,571 +1,254 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Nova Roleplay</title>
+  <meta charset="UTF-8">
+  <title>Nova Roleplay</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-<style>
-*{
-    box-sizing:border-box;
-    margin:0;
-    padding:0;
-    font-family:'Inter',sans-serif;
-}
-
-html{
-    scroll-behavior:smooth;
-}
-
-body{
-    background:#0e0e13;
-    color:#eaeaf0;
-    line-height:1.6;
-}
-
-/* ÜST BAR */
-header{
-    background:linear-gradient(135deg,#5e2b97,#3a1c71);
-    padding:25px 0;
-}
-
-nav{
-    max-width:1100px;
-    margin:auto;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:0 20px;
-}
-
-nav h1{
-    font-size:24px;
-    font-weight:700;
-}
-
-nav a{
-    color:#fff;
-    text-decoration:none;
-    margin-left:20px;
-    font-weight:500;
-    position:relative;
-}
-
-nav a::after{
-    content:"";
-    position:absolute;
-    left:0;
-    bottom:-5px;
-    width:0;
-    height:2px;
-    background:#fff;
-    transition:.3s;
-}
-
-nav a:hover::after{
-    width:100%;
-}
-
-/* GENEL */
-section{
-    max-width:1100px;
-    margin:80px auto;
-    padding:0 20px;
-}
-
-h2{
-    font-size:32px;
-    margin-bottom:25px;
-}
-
-/* KART */
-.card{
-    background:#161621;
-    padding:30px;
-    border-radius:16px;
-    margin-bottom:20px;
-    box-shadow:0 10px 25px rgba(0,0,0,.3);
-    transition:.3s;
-}
-
-.card:hover{
-    transform:translateY(-4px);
-}
-
-/* NEDEN NOVA */
-.features{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    gap:20px;
-}
-
-/* POLİTİKALAR */
-.policy-btn{
-    display:inline-block;
-    margin-top:20px;
-    padding:14px 26px;
-    background:#6a32b8;
-    color:#fff;
-    border-radius:30px;
-    cursor:pointer;
-    user-select:none;
-    transition:.3s;
-}
-
-.policy-btn:hover{
-    background:#8143e3;
-}
-
-/* ACCORDION */
-.accordion{
-    border-radius:14px;
-    overflow:hidden;
-    margin-bottom:15px;
-}
-
-.accordion-header{
-    background:#1f1f2f;
-    padding:18px 22px;
-    cursor:pointer;
-    font-weight:600;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-}
-
-.accordion-header:hover{
-    background:#2a2a40;
-}
-
-.accordion-content{
-    max-height:0;
-    overflow:hidden;
-    background:#161621;
-    transition:max-height .4s ease;
-    padding:0 22px;
-}
-
-.accordion-content p{
-    padding:18px 0;
-    opacity:.8;
-}
-
-/* SCROLL ANİMASYON */
-.reveal{
-    opacity:0;
-    transform:translateY(40px);
-    transition:.6s ease;
-}
-
-.reveal.active{
-    opacity:1;
-    transform:translateY(0);
-}
-</style>
-<style>
-/* eski css'ler burada */
-
-/* MOR IŞIK EFEKTİ */
-.card {
-    position: relative;
-    transition: all 0.35s ease;
-}
-
-.card::before {
-    content: "";
-    position: absolute;
-    inset: -2px;
-    border-radius: 16px;
-    background: linear-gradient(
-        120deg,
-        #7f3cff,
-        #b86bff,
-        #7f3cff
-    );
-    opacity: 0;
-    z-index: -1;
-    filter: blur(10px);
-    transition: opacity 0.35s ease;
-}
-
-.card:hover::before {
-    opacity: 1;
-}
-
-.card:hover {
-    transform: translateY(-4px);
-}
-    .card::after {
-    content: "";
-    position: absolute;
-    inset: -2px;
-    border-radius: 16px;
-    background: linear-gradient(
-        270deg,
-        #7f3cff,
-        #b86bff,
-        #7f3cff
-    );
-    background-size: 400% 400%;
-    z-index: -2;
-    filter: blur(6px);
-    animation: neonFlow 6s linear infinite;
-    opacity: 0.8;
-}
-
-@keyframes neonFlow {
-    0% {
-        background-position: 0% 50%;
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #0b0b12;
+      color: #fff;
     }
-    100% {
-        background-position: 400% 50%;
-    }
-}
-.card {
-    animation: pulseGlow 3.5s ease-in-out infinite;
-}
 
-@keyframes pulseGlow {
-    0% {
-        box-shadow: 0 0 10px rgba(127, 60, 255, 0.3);
+    h1, h2, h3 {
+      margin-bottom: 12px;
     }
-    50% {
-        box-shadow: 0 0 22px rgba(184, 107, 255, 0.6);
+
+    section {
+      padding: 60px 10%;
     }
-    100% {
-        box-shadow: 0 0 10px rgba(127, 60, 255, 0.3);
+
+    /* Renkler */
+    :root {
+      --primary: #9b5cff;
+      --border: rgba(155, 92, 255, 0.35);
+      --glow-soft: rgba(155, 92, 255, 0.25);
+      --card-bg: #12121a;
     }
-}
-.card:active {
-    transform: scale(0.97);
-    box-shadow: 0 0 35px rgba(184, 107, 255, 0.9);
-}
 
-</style>
+    /* Hakkımızda */
+    .about-box {
+      background: linear-gradient(180deg, #14141f, #101018);
+      border-radius: 20px;
+      padding: 30px;
+      border: 1px solid var(--border);
+      box-shadow: 0 0 25px var(--glow-soft);
+    }
 
+    /* Kartlar */
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      margin-top: 30px;
+    }
 
+    .card {
+      background: var(--card-bg);
+      border-radius: 16px;
+      padding: 22px;
+      border: 1px solid var(--border);
+      box-shadow: 0 0 18px rgba(155,92,255,0.15);
+      transition: 0.25s ease;
+    }
+
+    .card:hover {
+      box-shadow: 0 0 28px rgba(155,92,255,0.3);
+      transform: translateY(-4px);
+    }
+
+    /* Buton */
+    .btn {
+      display: inline-block;
+      margin-top: 25px;
+      padding: 12px 24px;
+      background: linear-gradient(135deg, #9b5cff, #7a3cff);
+      border-radius: 999px;
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+      box-shadow: 0 0 18px rgba(155,92,255,0.4);
+      transition: 0.25s;
+    }
+
+    .btn:hover {
+      box-shadow: 0 0 28px rgba(155,92,255,0.6);
+    }
+
+    /* Politikalar */
+    .policy {
+      margin-bottom: 15px;
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      background: var(--card-bg);
+    }
+
+    .policy-header {
+      padding: 16px 20px;
+      cursor: pointer;
+      background: #151520;
+      font-weight: bold;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .policy-header:hover {
+      background: #1a1a2a;
+    }
+
+    .policy-content {
+      display: none;
+      padding: 20px;
+      line-height: 1.6;
+      border-top: 1px solid var(--border);
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    li {
+      margin-bottom: 8px;
+    }
+  </style>
 </head>
 
 <body>
 
-<header>
-<nav>
-    <h1>Nova Roleplay</h1>
-    <div>
-    <a href="#about-us">Hakkımızda</a>
-    <a href="#about">Neden Nova?</a>
-    <a href="#policies">Politikalar</a>
-</div>
-</nav>
-</header>
-
-    <section id="about-us" class="reveal">
-<h2>Hakkımızda</h2>
-
-<div class="card">
+<!-- HAKKIMIZDA -->
+<section>
+  <h1>Hakkımızda</h1>
+  <div class="about-box">
     <p>
-        Nova Roleplay, kaliteli rol yapma deneyimini ön planda tutan,
-        adil yönetim anlayışıyla kurulmuş bir roleplay sunucusudur.
-        Amacımız oyunculara gerçekçi, keyifli ve uzun soluklu bir RP ortamı sunmaktır.
+      Nova Roleplay, kaliteli rol yapma deneyimini ön planda tutan ve
+      adil yönetim anlayışıyla kurulmuş bir roleplay sunucusudur.
+      Hedefimiz oyunculara gerçekçi, keyifli ve uzun soluklu bir RP ortamı sunmaktır.
     </p>
-
-    <p style="margin-top:15px;">
-        Sunucumuz, aktif yetkili kadrosu, dengeli kuralları ve
-        topluluk odaklı yapısıyla her geçen gün gelişmeye devam etmektedir.
-        Oyuncu geri bildirimleri doğrultusunda sürekli olarak kendimizi yeniliyoruz.
+    <p>
+      Sunucumuz; aktif yetkili kadrosu, dengeli kuralları ve topluluk
+      odaklı yapısıyla her geçen gün gelişmeye devam etmektedir.
+      Oyuncu geri bildirimleri doğrultusunda sistemimizi sürekli iyileştiriyoruz.
     </p>
-</div>
+  </div>
 </section>
 
-    
-<section id="about" class="reveal">
-<h2>Neden Nova Roleplay?</h2>
+<!-- NEDEN NOVA -->
+<section>
+  <h2>Neden Nova Roleplay?</h2>
 
-<div class="features">
+  <div class="cards">
     <div class="card">
-        <h3>🎯 Aktif Yetkili Kadro</h3>
-        <p>Sunucumuzda aktif, adil ve tecrübeli bir yetkili ekibi görev yapmaktadır.</p>
+      <h3>🎯 Aktif Yetkili Kadro</h3>
+      <p>Sunucumuzda aktif, deneyimli ve tarafsız bir yetkili ekibi görev yapmaktadır.</p>
     </div>
-    <div class="card">
-        <h3>⚖️ Gerçekçi RP Kuralları</h3>
-        <p>Amerikan konseptine uygun, detaylı ve dengeli rol yapma sistemi.</p>
-    </div>
-    <div class="card">
-        <h3>🚀 Stabil Altyapı</h3>
-        <p>Lag, kopma ve teknik sorunlara karşı optimize edilmiş sistem.</p>
-    </div>
-    <div class="card">
-        <h3>🤝 Topluluk Odaklı</h3>
-        <p>Oyuncu geri bildirimleri dikkate alınarak sürekli gelişen yapı.</p>
-    </div>
-</div>
 
-<div class="policy-btn" onclick="scrollToPolicies()">Politikaları Görüntüle</div>
+    <div class="card">
+      <h3>⚖️ Gerçekçi RP Kuralları</h3>
+      <p>Amerikan konseptine uygun, dengeli ve oynanabilir RP kuralları.</p>
+    </div>
+
+    <div class="card">
+      <h3>🚀 Stabil Altyapı</h3>
+      <p>Lag ve teknik sorunlara karşı optimize edilmiş güçlü sistem.</p>
+    </div>
+
+    <div class="card">
+      <h3>🤝 Topluluk Odaklı</h3>
+      <p>Oyuncuların görüşleri dikkate alınarak sürekli gelişen yapı.</p>
+    </div>
+  </div>
+
+  <a href="#politikalar" class="btn">Politikaları Görüntüle</a>
 </section>
 
-<section id="policies" class="reveal">
-<h2>Politikalar</h2>
-
-<div class="accordion">
-    <div class="accordion-header">🚨 Güvenli Bölge İhlali <span>+</span></div>
-    <div class="accordion-content"><p>Sunucuda, agresif ve yasa dışı rollerin yasak olduğu Güvenli Bölgeler bulunmaktadır. Bu alanlarda suç işlemek, provoke etmek veya şiddet içeren herhangi bir eylem gerçekleştirmek kesinlikle yasaktır.
-
-Güvenli bölgeler, rol bütünlüğünü ve oyuncu deneyimini korumak amacıyla belirlenmiştir ve IC olarak kolluk kuvvetleri tarafından korunur.
-
-Güvenli Bölge Sayılan Alanlar:
-
-• Açık ve aktif tüm işletmeler
-
-• Devlet kurumları
-
-• Sistemsel meslek alanları
-
-• Tamirhaneler
-
-• Havalimanı ve çevresi
-        
-• Barlar ve eğlence mekânları
-
-• Toplu etkinlik alanları
-
-• Haber merkezleri
-
-• Araç galerileri
-
-• Mezarlık
-
-• Starfish – Market St. – Santa Maria – Idlewood</p></div>
-</div>
-
-<div class="accordion">
-    <div class="accordion-header">🚨 Emotesiz Ateş <span>+</span></div>
-    <div class="accordion-content"><p>Kural Tanımı
-
-Bir oyuncunun, başka bir oyuncuya karşı öldürücü güç kullanmadan önce bu eylemi uygun bir şekilde role dökmesi (emote ile belirtmesi) zorunludur. Ancak saldırıya uğrayan taraf, kendini korumak amacıyla refleksif şekilde karşılık veriyorsa emote verme zorunluluğu aranmaz.
-
-✅ Doğru Kullanım
-
-Oyuncunun silah doğrultmadan veya ateş etmeden önce uygun bir emote vermesi.
-
-Oyuncunun ani bir saldırı karşısında kendini savunmak amacıyla hızlıca karşılık vermesi.
-
-❌ Kural İhlali
-
-Herhangi bir rol veya emote olmadan aniden ateş açılması.
-
-Planlı şekilde yaklaşılıp emotesiz saldırıya geçilmesi.
-
-Önemli Notlar
-
-İlk saldırıyı başlatan kişi, eylemini role dökmeden ateş açarsa ihlal yapmış sayılır.
-
-Savunma amaçlı refleksif karşılık veren oyuncular emote vermekle yükümlü değildir.
-
-Bu istisna kötüye kullanılamaz ve tüm durumlar yetkililer tarafından detaylı şekilde incelenir.</p></div>
-</div>
-
-<div class="accordion">
-    <div class="accordion-header">🚨 GunRP - Agresif RP <span>+</span></div>
-    <div class="accordion-content"><p>Sebepsiz düşmanlık oluşturmak, agresif tutum sergilemek ve gerekçe olmadan diğer oyunculara saldırmak kesinlikle yasaktır. Bu yasak yalnızca çatışma senaryoları için değil, tüm rol ortamı için geçerlidir.
-
-Kurallar
-
-• Gerekçesiz tehdit, hakaret veya provoke edici davranışlar yasaktır.
-
-• Ateş açma hakkı yalnızca rol kapsamında oluşturulmuş geçerli bir düşmanlık veya tehdit durumunda mümkündür.
-
-• Sosyal roller, gereksiz çatışma yaratmak veya her durumu silahla çözmek için kullanılmamalıdır.
-
-• Örnekler
-
-• Sosyal etkileşim sırasında hiçbir ciddi sebep yokken saldırıya geçilmesi.
-
-• Basit bir kaza rolü sonrası anlaşmazlık yaşanıp silahlı saldırı başlatılması.</p></div>
-</div>
-
-<div class="accordion">
-    <div class="accordion-header">🚨 Rolden Kaçma <span>+</span></div>
-    <div class="accordion-content"><p>Hiçbir oyuncu, rol esnasında kasıtlı olarak oyundan çıkamaz veya rolü terk edemez. Bu tür davranışlar rol akışını bozduğu için ihlal sayılır.
-
-Bağlantı sorunları tamamen oyuncunun sorumluluğundadır ve rolü etkilemesi durumunda mazeret kabul edilmez.
-
-Avantaj sağlamak amacıyla yapılan çıkışlar ağır ihlal olarak değerlendirilir ve ceza süresi artırılır. Polis rolleri dâhil hiçbir rolden, açık kanıt olmadan çıkış yapılamaz.</p></div>
-</div>
-
-<div class="accordion">
-    <div class="accordion-header">🚨 Türk Jargonu <span>+</span></div>
-    <div class="accordion-content"><p>Bu kural, oyun içi konuşmaların Amerikan konseptine uygunluğunu korumak amacıyla oluşturulmuştur.
-
-• Türk jargonu tamamen yasak değildir ancak abartılı kullanım yasaktır.
-
-• Karakter geçmişine bağlı sınırlı kullanım kabul edilebilir.
-
-• Sürekli ve bilinçli kullanım yaptırım sebebidir.</p></div>
-</div>
-
-<div class="accordion">
-    <div class="accordion-header">🚨 DeathMatch (DM) Politikası <span>+</span></div>
-    <div class="accordion-content"><p>Deathmatch (DM), hiçbir şart altında kabul edilmez. Bir oyuncunun geçerli bir rol sebebi olmadan etrafa ateş açması veya rol yapmadığı bir kişiye saldırması DM ihlali olarak değerlendirilir.
-
-🔍 DM Nedir?
-DM, bir oyuncunun başka bir oyuncuya herhangi bir gerekçe olmaksızın ateş etmesi veya zarar vermesi durumudur. Kişisel düşmanlık durumu açık ve net şekilde kanıtlanmalıdır.
-
-⚖️ İhlal Durumu ve Cezalar:
-
-Uygulanacak ceza süresi, ihlalin türüne ve ağırlığına göre belirlenir.
-
-🔒 Üst Yönetim Kurulu onayıyla karakter veya hesap yasaklaması uygulanabilir.
-
-⚔️ Üst Yönetim Kurulu kararıyla silah silme işlemi gerçekleştirilebilir.</p></div>
-</div>
-    
-<div class="accordion">
-    <div class="accordion-header">🚨 Metagaming (MG) Politikası <span>+</span></div>
-    <div class="accordion-content"><p>Metagaming, oyun dışı (OOC) bilgilerin oyun içinde (IC) kullanılmasıdır. Oyuncular, karakterlerinin bilmesi mümkün olmayan bilgileri rolüne yansıtamaz. Aşağıdaki durumlar MG ihlali olarak değerlendirilir ve kesinlikle yasaktır:
-
-• Discord, yayın, sohbet veya harici platformlardan bilgi almak 💬
-
-• Harita, isim etiketi veya UI bilgilerini rol içine taşımak 🗺️
-
-• Oyun dışı öğrenilen bilgileri karakterine aktarmak 📡
- 
-• Ölmüş karakterin bilgileriyle rol yapmaya devam etmek ☠️
-
-• Başka bir oyuncunun konumunu OOC yollarla öğrenmek 📍
-
-• Yetkili veya sistem mesajlarını rol içine dahil etmek 🛑
-
-• Rol akışını bozacak şekilde dış etkenlerden faydalanmak ⚠️
-
-🔍 MG Nedir?
-Metagaming, karakterin evrende doğal yollarla öğrenemeyeceği bilgileri kullanarak avantaj sağlamasıdır. Bu durum, rol bütünlüğünü ve adil oyun deneyimini bozar.
-
-⚖️ İhlal Durumu ve Cezalar:
-MG ihlallerinde uygulanacak cezalar, ihlalin ağırlığına ve tekrar durumuna göre belirlenir.
-
-🔒 Tekrarlanan ihlallerde karakter veya hesap kısıtlaması uygulanabilir.
-
-📌 Üst Yönetim Kurulu kararıyla ağır yaptırımlar uygulanabilir.</p></div>
-</div>
-
-<div class="accordion">
-    <div class="accordion-header">🚨 Non-RP Politikası <span>+</span></div>
-    <div class="accordion-content"><p>Non-RP, gerçek hayatta mantıklı olmayan veya rol kurallarına aykırı davranışların sergilenmesidir. Sunucu içerisinde tüm oyuncular, gerçekçi ve tutarlı roller yapmakla yükümlüdür. Aşağıdaki davranışlar Non-RP kapsamına girer ve yasaktır:
-
-• Gerçekçilikten uzak hareketlerde bulunmak ❌
-
-• Ani ve mantıksız karakter davranışları sergilemek 🔄
-
-• Olaylara rol dışı ve abartılı tepkiler vermek 🤯
-
-• Rol gerektiren durumları tamamen görmezden gelmek 🚫
-
-• Karakterinin can güvenliğini hiçe saymak ⚠️
-
-• Yetkili veya senaryo gerektiren durumlarda rol dışına çıkmak 📵
-
-• Fizik kurallarına ve oyun evrenine aykırı davranmak 🌍
-
-• Rol akışını bozacak tutumlar sergilemek ⛔
-
-🔍 Non-RP Nedir?
-Non-RP, oyuncunun karakterini ve oyun evrenini yok sayarak, rol yapmadan veya mantık dışı hareketler gerçekleştirmesi olarak tanımlanır. Bu tür davranışlar, diğer oyuncuların rol deneyimini olumsuz etkiler.
-
-⚖️ İhlal Durumu ve Cezalar:
-Non-RP ihlallerinde ceza süresi, ihlalin türüne ve tekrar durumuna göre belirlenir.
-
-🔒 Tekrarlanan ihlallerde karakter veya hesap kısıtlaması uygulanabilir.
-
-📌 Üst Yönetim Kurulu kararıyla ağır yaptırımlar uygulanabilir.</p></div>
-</div>
-
-<div class="accordion">
-    <div class="accordion-header">🚨 Fear RP Politikası <span>+</span></div>
-    <div class="accordion-content"><p>Fear RP kuralları, karakterinizin gerçekçi korku duygusunu rolüne yansıtmasını zorunlu kılar. Aşağıda belirtilen durumlarda Fear RP ihlali yapılmış sayılır ve kesinlikle yasaktır:
-
-• Kalabalık gruplara tek başına saldırıya geçmek 👥
-
-• Silahsız durumdayken silahlı kişilere agresif tepki vermek 🔫
-
-• Esir alınmış veya tutuklu iken sert ve meydan okuyan şekilde konuşmak 🤐
-
-• Operasyonlara veya çatışmalara korkusuzca dahil olmak 💥
-
-• Silah kullanmak yerine savunma yaparak kaçmaya çalışmak 🏃
-
-• Kendini silah yerine yumruk veya tekme ile savunmak 👊
-
-• Bir aracın bilinçli şekilde önüne atlamak 🚗
-
-• Onaylı bölgelerde gerçekleştirilen Fear RP ihlalleri, CK hakkı doğurur.</p></div>
-</div>
-
-<div class="accordion">
-    <div class="accordion-header">🚨 Powergaming (PG) Politikası <span>+</span></div>
-    <div class="accordion-content"><p>Powergaming (PG), oyuncunun oyun mekaniklerini veya karakterinin sahip olmadığı fiziksel/gerçekçi özellikleri kullanarak rolün doğal akışını bozmasıdır. Gerçek hayatta mümkün olmayan eylemleri, avantaj sağlamak amacıyla rol içerisine dahil etmek PG olarak değerlendirilir ve yasaktır.
-
-🔍 PG Nedir?
-PG; karakterin bilgi, güç veya fiziksel kapasitesinin ötesinde davranması, oyun sınırlarını zorlayarak gerçekçilikten kopması ve rol bütünlüğünü bozmasıdır.
-
-⚠️ Powergaming Kapsamına Giren Davranışlar:
-
-Gerçekçi olmayan fiziksel hareketler yapmak (imkânsız atlayışlar, ani refleksler vb.)
-
-Ağır şekilde yaralanmasına rağmen bunu rolüne yansıtmadan hareket etmeye devam etmek
-
-Tek bir emote veya kısa bir aksiyonla uzun ve karmaşık eylemleri tamamlamak
-
-Oyun mekaniklerini kullanarak mantıksız avantajlar elde etmek
-
-Gerçek hayatta mümkün olmayacak hızda veya şekilde tepki vermek
-
-⚖️ İhlal Durumu ve Cezalar:
-
-İhlalin ağırlığına ve tekrar durumuna göre cezai işlem uygulanır.
-
-🔒 Üst Yönetim Kurulu kararıyla karakter veya hesap hakkında yaptırım uygulanabilir.
-
-🚫 Sürekli ve bilinçli şekilde yapılan PG ihlalleri, sunucudan uzaklaştırma ile sonuçlanabilir.</p></div>
-</div>
+<!-- POLİTİKALAR -->
+<section id="politikalar">
+  <h2>Sunucu Politikaları</h2>
+
+  <!-- FEAR RP -->
+  <div class="policy">
+    <div class="policy-header" onclick="togglePolicy(this)">
+      ⚠️ Fear RP Politikası
+      <span>+</span>
+    </div>
+    <div class="policy-content">
+      <p>
+        Fear RP, karakterin gerçekçi korku duygusunu rolüne yansıtmasını zorunlu kılar.
+        Aşağıdaki davranışlar Fear RP ihlali sayılır:
+      </p>
+      <ul>
+        <li>Kalabalık gruplara tek başına bilinçsizce saldırmak</li>
+        <li>Silahsızken silahlı kişilere gerçek dışı tepkiler vermek</li>
+        <li>Esir veya tutukluyken umursamaz ve tehditkâr davranmak</li>
+        <li>Operasyon ve çatışmalara korkusuzca dahil olmak</li>
+        <li>Silah tehdidi altındayken kaçmaya çalışmak</li>
+        <li>Aracın önüne bilinçli şekilde atlamak</li>
+      </ul>
+      <p>Onaylı bölgelerde yapılan Fear RP ihlalleri CK hakkı doğurabilir.</p>
+    </div>
+  </div>
+
+  <!-- DM -->
+  <div class="policy">
+    <div class="policy-header" onclick="togglePolicy(this)">
+      ❌ Deathmatch (DM) Politikası
+      <span>+</span>
+    </div>
+    <div class="policy-content">
+      <p>
+        Deathmatch, hiçbir koşulda kabul edilmez.
+        Rol yapılmadan bir oyuncuya zarar vermek DM olarak değerlendirilir.
+      </p>
+      <p>
+        <strong>DM Nedir?</strong><br>
+        Bir oyuncunun kişisel düşmanlık olmaksızın başka bir oyuncuya
+        sebepsiz şekilde ateş açması veya zarar vermesidir.
+      </p>
+      <p>
+        Ceza süresi ihlalin boyutuna göre değişir.
+        Üst Yönetim Kurulu kararıyla karakter, hesap veya silah silme uygulanabilir.
+      </p>
+    </div>
+  </div>
+
+  <!-- PG -->
+  <div class="policy">
+    <div class="policy-header" onclick="togglePolicy(this)">
+      ⚠️ Power Gaming (PG) Politikası
+      <span>+</span>
+    </div>
+    <div class="policy-content">
+      <p>
+        Power Gaming, oyun mekaniklerini gerçekçilikten uzak şekilde
+        kullanarak avantaj sağlamaya çalışmaktır.
+      </p>
+      <p>
+        Sayıca üstünlük veya ani kararlar her zaman PG sayılmaz.
+        Ancak karakterin fiziksel ve mantıksal sınırlarını aşan,
+        gerçek hayatta mümkün olmayan davranışlar PG olarak değerlendirilir.
+      </p>
+    </div>
+  </div>
 
 </section>
 
 <script>
-/* SCROLL ANİMASYON */
-const reveals=document.querySelectorAll(".reveal");
+  function togglePolicy(header) {
+    const content = header.nextElementSibling;
+    const icon = header.querySelector("span");
 
-window.addEventListener("scroll",()=>{
-    reveals.forEach(el=>{
-        if(el.getBoundingClientRect().top<window.innerHeight-100){
-            el.classList.add("active");
-        }
-    });
-});
-
-window.addEventListener("load",()=>{
-    reveals.forEach(el=>{
-        el.classList.add("active");
-    });
-});
-
-/* ACCORDION */
-document.querySelectorAll(".accordion-header").forEach(header=>{
-    header.addEventListener("click",()=>{
-        const content=header.nextElementSibling;
-        const open=content.style.maxHeight;
-        document.querySelectorAll(".accordion-content").forEach(c=>c.style.maxHeight=null);
-        if(!open){
-            content.style.maxHeight=content.scrollHeight+"px";
-        }
-    });
-});
-
-/* POLİTİKALAR SCROLL */
-function scrollToPolicies(){
-    document.getElementById("policies").scrollIntoView({behavior:"smooth"});
-}
+    if (content.style.display === "block") {
+      content.style.display = "none";
+      icon.textContent = "+";
+    } else {
+      content.style.display = "block";
+      icon.textContent = "-";
+    }
+  }
 </script>
 
 </body>
