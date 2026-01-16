@@ -3,289 +3,188 @@
 <head>
   <meta charset="UTF-8">
   <title>Nova Roleplay</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- GOOGLE FONTS -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
 
   <style>
-
-    /* GENEL FONT AYARI */
-body {
-  font-family: 'Inter', sans-serif;
-  color: #eaeaea;
-  line-height: 1.6;
-}
-
-/* BAŞLIKLAR */
-h1, h2, h3, h4 {
-  font-family: 'Poppins', sans-serif;
-  letter-spacing: 0.5px;
-}
-
-/* EN ÜST BAŞLIK */
-.site-title {
-  font-family: 'Poppins', sans-serif;
-  font-size: 42px;
-  font-weight: 700;
-  text-align: center;
-  margin: 30px 0 40px 0;
-  color: #ffffff;
-  text-shadow: 0 0 10px rgba(160, 100, 255, 0.35);
-}
-
-    
-    body {
-      margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
-      background: #0b0b12;
-      color: #fff;
+    * {
+      box-sizing: border-box;
+      scroll-behavior: smooth;
     }
 
-    h1, h2, h3 {
-      margin-bottom: 12px;
+    body {
+      margin: 0;
+      background: #0b0b0f;
+      color: #eaeaea;
+      font-family: 'Inter', sans-serif;
+    }
+
+    header {
+      text-align: center;
+      padding: 40px 20px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 42px;
+      font-weight: 700;
+      color: #fff;
+      text-shadow: 0 0 12px rgba(160,100,255,0.3);
     }
 
     section {
-      padding: 60px 10%;
+      max-width: 1100px;
+      margin: auto;
+      padding: 40px 20px;
     }
 
-    /* Renkler */
-    :root {
-      --primary: #9b5cff;
-      --border: rgba(155, 92, 255, 0.35);
-      --glow-soft: rgba(155, 92, 255, 0.25);
-      --card-bg: #12121a;
+    h2 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 30px;
+      margin-bottom: 20px;
     }
 
-    /* Hakkımızda */
-    .about-box {
-      background: linear-gradient(180deg, #14141f, #101018);
-      border-radius: 20px;
-      padding: 30px;
-      border: 1px solid var(--border);
-      box-shadow: 0 0 25px var(--glow-soft);
-    }
-
-    /* Kartlar */
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 20px;
-      margin-top: 30px;
-    }
-
-    .card {
-      background: var(--card-bg);
+    .box {
+      background: #12121a;
       border-radius: 16px;
-      padding: 22px;
-      border: 1px solid var(--border);
-      box-shadow: 0 0 18px rgba(155,92,255,0.15);
-      transition: 0.25s ease;
+      padding: 25px;
+      margin-bottom: 25px;
+      border: 1px solid rgba(160,100,255,0.25);
+      transition: 0.3s;
     }
 
-    .card:hover {
-      box-shadow: 0 0 28px rgba(155,92,255,0.3);
-      transform: translateY(-4px);
+    .box:hover {
+      box-shadow: 0 0 18px rgba(160,100,255,0.25);
     }
 
-    /* Buton */
-    .btn {
-      display: inline-block;
-      margin-top: 25px;
-      padding: 12px 24px;
-      background: linear-gradient(135deg, #9b5cff, #7a3cff);
-      border-radius: 999px;
-      color: #fff;
-      text-decoration: none;
-      font-weight: bold;
-      box-shadow: 0 0 18px rgba(155,92,255,0.4);
-      transition: 0.25s;
-    }
-
-    .btn:hover {
-      box-shadow: 0 0 28px rgba(155,92,255,0.6);
-    }
-
-    /* Politikalar */
-    .policy {
-      margin-bottom: 15px;
-      border-radius: 14px;
-      overflow: hidden;
-      border: 1px solid var(--border);
-      background: var(--card-bg);
-    }
-
-    .policy-header {
-      padding: 16px 20px;
+    /* POLITIKALAR */
+    .policy-title {
       cursor: pointer;
-      background: #151520;
-      font-weight: bold;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .policy-header:hover {
-      background: #1a1a2a;
+      font-family: 'Poppins', sans-serif;
+      font-size: 20px;
+      margin: 0;
     }
 
     .policy-content {
-      display: none;
-      padding: 20px;
-      line-height: 1.6;
-      border-top: 1px solid var(--border);
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.5s ease;
+      margin-top: 15px;
     }
 
-    ul {
-      padding-left: 20px;
+    .policy.active .policy-content {
+      max-height: 5000px;
     }
 
-    li {
-      margin-bottom: 8px;
+    .button {
+      display: inline-block;
+      margin-top: 30px;
+      padding: 12px 24px;
+      border-radius: 25px;
+      background: #7a3cff;
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
     }
   </style>
 </head>
 
 <body>
 
-<!-- HAKKIMIZDA -->
-<section>
-  <h1>Hakkımızda</h1>
-  <div class="about-box">
-    <p>
-      Nova Roleplay, kaliteli rol yapma deneyimini ön planda tutan ve
-      adil yönetim anlayışıyla kurulmuş bir roleplay sunucusudur.
-      Hedefimiz oyunculara gerçekçi, keyifli ve uzun soluklu bir RP ortamı sunmaktır.
-    </p>
-    <p>
-      Sunucumuz; aktif yetkili kadrosu, dengeli kuralları ve topluluk
-      odaklı yapısıyla her geçen gün gelişmeye devam etmektedir.
-      Oyuncu geri bildirimleri doğrultusunda sistemimizi sürekli iyileştiriyoruz.
-    </p>
-  </div>
-</section>
+<header>Nova Roleplay</header>
 
-<!-- NEDEN NOVA -->
-<section>
-  <h2>Neden Nova Roleplay?</h2>
-
-  <div class="cards">
-    <div class="card">
-      <h3>🎯 Aktif Yetkili Kadro</h3>
-      <p>Sunucumuzda aktif, deneyimli ve tarafsız bir yetkili ekibi görev yapmaktadır.</p>
-    </div>
-
-    <div class="card">
-      <h3>⚖️ Gerçekçi RP Kuralları</h3>
-      <p>Amerikan konseptine uygun, dengeli ve oynanabilir RP kuralları.</p>
-    </div>
-
-    <div class="card">
-      <h3>🚀 Stabil Altyapı</h3>
-      <p>Lag ve teknik sorunlara karşı optimize edilmiş güçlü sistem.</p>
-    </div>
-
-    <div class="card">
-      <h3>🤝 Topluluk Odaklı</h3>
-      <p>Oyuncuların görüşleri dikkate alınarak sürekli gelişen yapı.</p>
-    </div>
+<section id="about">
+  <h2>Hakkımızda</h2>
+  <div class="box">
+    Nova Roleplay, gerçekçi rol yapma deneyimini merkeze alan, adil yönetim anlayışıyla oluşturulmuş bir roleplay sunucusudur.
+    Amacımız oyunculara uzun soluklu, keyifli ve dengeli bir RP ortamı sunmaktır.
+    Sunucumuz aktif yetkili kadrosu, dengeli kuralları ve topluluk odaklı yapısıyla sürekli olarak gelişmektedir.
+    Oyuncu geri bildirimleri doğrultusunda sistemlerimizi ve kurallarımızı düzenli olarak güncelleriz.
   </div>
 
-  <a href="#politikalar" class="btn">Politikaları Görüntüle</a>
+  <a href="#policies" class="button">Politikaları Görüntüle</a>
 </section>
 
-<!-- POLİTİKALAR -->
-<section id="politikalar">
-  <h2>Sunucu Politikaları</h2>
+<section id="policies">
+  <h2>Politikalar</h2>
 
   <!-- FEAR RP -->
-  <div class="policy">
-    <div class="policy-header" onclick="togglePolicy(this)">
-      ⚠️ Fear RP Politikası
-      <span>+</span>
-    </div>
+  <div class="box policy">
+    <h3 class="policy-title">⚠️ Fear RP Politikası</h3>
     <div class="policy-content">
-      <p>
-        Fear RP, karakterin gerçekçi korku duygusunu rolüne yansıtmasını zorunlu kılar.
-        Aşağıdaki davranışlar Fear RP ihlali sayılır:
-      </p>
+      Fear RP, karakterinizin hayatını ve güvenliğini gerçekçi biçimde önemsemesini gerektirir.
+      Aşağıda belirtilen davranışlar korku rolüne aykırı kabul edilir ve yasaktır:
+
       <ul>
-        <li>Kalabalık gruplara tek başına bilinçsizce saldırmak</li>
-        <li>Silahsızken silahlı kişilere gerçek dışı tepkiler vermek</li>
-        <li>Esir veya tutukluyken umursamaz ve tehditkâr davranmak</li>
-        <li>Operasyon ve çatışmalara korkusuzca dahil olmak</li>
+        <li>Sayısal veya konumsal olarak dezavantajlıyken tek başına saldırıya geçmek</li>
+        <li>Silahsız durumdayken silahlı kişilere meydan okumak</li>
+        <li>Esir, kelepçeli veya kontrol altındayken agresif tavır sergilemek</li>
+        <li>Çatışma veya operasyonlara gerçekçi korku göstermeden dahil olmak</li>
         <li>Silah tehdidi altındayken kaçmaya çalışmak</li>
-        <li>Aracın önüne bilinçli şekilde atlamak</li>
+        <li>Silahlı tehdide karşı yumruk veya tekme ile karşılık vermek</li>
+        <li>Hareket halindeki araçların önüne atlamak</li>
       </ul>
-      <p>Onaylı bölgelerde yapılan Fear RP ihlalleri CK hakkı doğurabilir.</p>
+
+      Onaylı bölgelerde gerçekleştirilen Fear RP ihlalleri CK hakkı doğurabilir.
     </div>
   </div>
 
   <!-- DM -->
-  <div class="policy">
-    <div class="policy-header" onclick="togglePolicy(this)">
-      ❌ Deathmatch (DM) Politikası
-      <span>+</span>
-    </div>
+  <div class="box policy">
+    <h3 class="policy-title">❌ Deathmatch (DM) Politikası</h3>
     <div class="policy-content">
-      <p>
-        Deathmatch, hiçbir koşulda kabul edilmez.
-        Rol yapılmadan bir oyuncuya zarar vermek DM olarak değerlendirilir.
-      </p>
-      <p>
-        <strong>DM Nedir?</strong><br>
-        Bir oyuncunun kişisel düşmanlık olmaksızın başka bir oyuncuya
-        sebepsiz şekilde ateş açması veya zarar vermesidir.
-      </p>
-      <p>
-        Ceza süresi ihlalin boyutuna göre değişir.
-        Üst Yönetim Kurulu kararıyla karakter, hesap veya silah silme uygulanabilir.
-      </p>
+      Deathmatch, hiçbir koşul altında kabul edilmez.
+      Bir oyuncunun rol temeli olmadan başka bir oyuncuya saldırması veya ateş açması DM olarak değerlendirilir.
+
+      DM; kişisel düşmanlık, hikâye bağlantısı veya rol gerekçesi bulunmayan tüm saldırgan eylemleri kapsar.
+      Kişisel düşmanlık iddiaları somut biçimde kanıtlanmalıdır.
+
+      İhlalin ağırlığına göre ceza süresi değişiklik gösterir.
+      Üst Yönetim Kurulu kararıyla karakter veya hesap yasaklanabilir.
+      Gerekli görülmesi halinde silah silme işlemi uygulanabilir.
     </div>
   </div>
 
   <!-- PG -->
-  <div class="policy">
-    <div class="policy-header" onclick="togglePolicy(this)">
-      ⚠️ Power Gaming (PG) Politikası
-      <span>+</span>
-    </div>
+  <div class="box policy">
+    <h3 class="policy-title">⚠️ Powergaming (PG)</h3>
     <div class="policy-content">
-      <p>
-        Power Gaming, oyun mekaniklerini gerçekçilikten uzak şekilde
-        kullanarak avantaj sağlamaya çalışmaktır.
-      </p>
-      <p>
-        Sayıca üstünlük veya ani kararlar her zaman PG sayılmaz.
-        Ancak karakterin fiziksel ve mantıksal sınırlarını aşan,
-        gerçek hayatta mümkün olmayan davranışlar PG olarak değerlendirilir.
-      </p>
+      Powergaming, oyun mekaniklerini veya gerçek dışı avantajları kullanarak rol üstünlüğü sağlamaya çalışmaktır.
+      Ancak sayısal üstünlük, hızlı karar verme veya sert rol her zaman PG sayılmaz.
+
+      Gerçekçi sınırlar içerisinde yapılan 1vX senaryoları, ortam ve koşullar uygunsa geçerli kabul edilir.
+      Oyuncuların role uygun hareket etmesi ve fiziksel sınırları tamamen yok saymaması gerekir.
+    </div>
+  </div>
+
+  <!-- MG -->
+  <div class="box policy">
+    <h3 class="policy-title">⚠️ Metagaming (MG)</h3>
+    <div class="policy-content">
+      Metagaming, oyun dışı bilgilerin oyun içine taşınmasıdır.
+      Discord, yayın, sohbet veya OOC bilgiler IC karaktere aktarılamaz.
+      Karakteriniz yalnızca oyun içinde öğrendiği bilgilerle hareket etmelidir.
+    </div>
+  </div>
+
+  <!-- NON RP -->
+  <div class="box policy">
+    <h3 class="policy-title">⚠️ Non-RP</h3>
+    <div class="policy-content">
+      Non-RP, rol bütünlüğünü bozan ve oyun atmosferine zarar veren davranışların tümünü kapsar.
+      Gerçekçilikten uzak, absürt veya rol dışı hareketler bu kapsamda değerlendirilir.
+      Sürekli tekrar eden Non-RP ihlalleri ağır yaptırımlarla sonuçlanabilir.
     </div>
   </div>
 
 </section>
 
 <script>
-  function togglePolicy(header) {
-    const content = header.nextElementSibling;
-    const icon = header.querySelector("span");
-
-    if (content.style.display === "block") {
-      content.style.display = "none";
-      icon.textContent = "+";
-    } else {
-      content.style.display = "block";
-      icon.textContent = "-";
-    }
-  }
+  document.querySelectorAll('.policy-title').forEach(title => {
+    title.addEventListener('click', () => {
+      title.parentElement.classList.toggle('active');
+    });
+  });
 </script>
 
 </body>
-  <header class="site-title">
-  Nova Roleplay
-</header>
-
 </html>
-
-<head>
-
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
-
-</head>
